@@ -52,6 +52,9 @@
   home = {
     username = "siegi";
     homeDirectory = "/home/siegi";
+    sessionVariables = {
+      NIXOS_CONFIG = "~/nix-config/";
+    };
   };
 
   # Add stuff for your user as you see fit:
