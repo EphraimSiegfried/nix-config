@@ -5,4 +5,5 @@
     userName = "Ephraim Siegfried";
   };
   programs.gh.enable = true;
+  programs.lazygit.enable = true;
 }
