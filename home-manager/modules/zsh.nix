@@ -13,7 +13,10 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      update = "sudo nixos-rebuild switch";
+      # TODO:Find better solution for path and name
+      uhome = "home-manager switch -I ~/nix-config/flake.nix --flake .#siegi@blinkybill";
+      unixos = "nixos-rebuild switch --flake .#blinkybill";
+      lg = "lazygit"; # TODO: Might move to git module?
     };
     oh-my-zsh = {
       enable = true;
