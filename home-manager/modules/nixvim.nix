@@ -34,30 +34,47 @@
     colorschemes.catppuccin = {
       enable = true;
     };
-    
+
     plugins = {
       lsp = {
-	enable = true;
-	servers = {
-	  nixd.enable = true;
-	};
+        enable = true;
+        servers = {
+          nixd.enable = true;
+        };
       };
+
+      none-ls = {
+        enable = true;
+        enableLspFormat = true;
+        sources.formatting = {
+          nixpkgs_fmt.enable = true;
+        };
+      };
+      lsp-format.enable = true;
 
       nvim-autopairs = {
-	enable = true;
-	settings.check_ts = true; # use TreeSitter
-      };
-      telescope.enable = true;
-      treesitter = {
-	enable = true;
-	indent = true;
-      };
-      neo-tree = {
-	enable=true;
+        enable = true;
+        settings.check_ts = true; # use TreeSitter
       };
 
+      telescope.enable = true;
+
+      treesitter = {
+        enable = true;
+        indent = true;
+      };
+
+      neo-tree = {
+        enable = true;
+      };
+
+      indent-blankline.enable = true;
+
+
+      gitsigns.enable = true;
+
       toggleterm = {
-	enable = true;
+        enable = true;
       };
     };
   };
