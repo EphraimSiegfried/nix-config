@@ -3,10 +3,13 @@
 {
   home.packages = with pkgs; [
     zoxide
-      fzf
   ];
   programs.eza = {
     enable = true;
+  };
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
   programs.zsh = {
     enable = true;
@@ -21,11 +24,13 @@
     oh-my-zsh = {
       enable = true;
       theme = "refined";
-      plugins = ["zoxide" "vi-mode"];
-    };  
+      plugins = [ "zoxide" "vi-mode" ];
+    };
+
+    initExtra =
+      "
+    VI_MODE_SET_CURSOR=true
+    ";
   };
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+
 }
