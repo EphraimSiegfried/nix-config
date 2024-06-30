@@ -6,6 +6,7 @@
     git
     kitty
     spotify
+    discord
     git
   ];
   programs.zsh.enable = true;
