@@ -22,6 +22,17 @@
     ./modules/nixvim
     ./modules/git.nix
     ./modules/yazi.nix
+    ./modules/sioyek.nix
+    ./modules/hyprland.nix
+    ./modules/waybar.nix
+    ./modules/wofi.nix
+    ./modules/firefox.nix
+    ./modules/swaync.nix
+  ];
+
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   nixpkgs = {
