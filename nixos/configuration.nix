@@ -22,6 +22,8 @@
     ./modules/network.nix
     ./modules/packages.nix
     ./modules/kanata.nix
+    ./modules/amdgpu.nix
+    ./modules/hyprland.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -86,8 +88,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
