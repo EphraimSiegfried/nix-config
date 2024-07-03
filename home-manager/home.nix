@@ -17,17 +17,8 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    ./modules/zsh.nix
-    ./modules/kitty.nix
-    ./modules/nixvim
-    ./modules/git.nix
-    ./modules/yazi.nix
-    ./modules/sioyek.nix
-    ./modules/hyprland.nix
-    ./modules/waybar.nix
-    ./modules/wofi.nix
-    ./modules/firefox.nix
-    ./modules/swaync.nix
+    ./modules/apps.nix
+    ./modules/desktop.nix
   ];
 
   fonts.fontconfig.enable = true;
