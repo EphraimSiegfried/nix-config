@@ -7,6 +7,7 @@
     kitty
     spotify
     discord
+    webcord
     git
   ];
   programs.zsh.enable = true;
