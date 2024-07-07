@@ -24,6 +24,8 @@
     ./modules/kanata.nix
     ./modules/amdgpu.nix
     ./modules/hyprland.nix
+    ./modules/gaming.nix
+    ./modules/bluetooth.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -100,6 +102,7 @@
 
   hardware.opengl = {
     enable = true;
+    driSupport = true;
     driSupport32Bit = true;
   };
 
