@@ -46,6 +46,7 @@
         enable = true;
         servers = {
           nixd.enable = true;
+          cssls.enable = true;
         };
       };
 
@@ -104,6 +105,8 @@
       };
 
       indent-blankline.enable = true;
+
+      nvim-colorizer.enable = true;
 
       tmux-navigator.enable = true;
 

@@ -1,6 +1,16 @@
 { pkgs, ... }: {
   wayland.windowManager.hyprland.enable = true;
 
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = 1;
+    NIXOS_OZONE_WL = 1;
+    QT_QPA_PLATFORM = "wayland";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XCURSOR_SIZE = 128;
+  };
+
   wayland.windowManager.hyprland.settings = {
 
     "$mod" = "SUPER";
@@ -24,6 +34,9 @@
         # "$mod, SHIFT, L, swapwindow, r"
         # "$mod, SHIFT, K, swapwindow, u"
         # "$mod, SHIFT, J, swapwindow, d"
+
+        "$mod, S, exec, grim - | wl-copy"
+        "$mod SHIFT, S, exec, grim -g \"$(slurp)\" | wl-copy"
 
         "$mod, TAB, focuscurrentorlast"
 
