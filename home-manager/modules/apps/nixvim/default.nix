@@ -10,6 +10,7 @@
       number = true;
       relativenumber = true;
       shiftwidth = 2;
+      clipboard = "unnamedplus";
     };
 
     globals.mapleader = " ";
@@ -47,8 +48,11 @@
         servers = {
           nixd.enable = true;
           cssls.enable = true;
+          ccls.enable = true;
         };
       };
+      # clangd-extensions.enable = true;
+
 
       none-ls = {
         enable = true;
@@ -85,6 +89,7 @@
       };
 
       luasnip.enable = true;
+      friendly-snippets.enable = true;
 
       lualine.enable = true;
 
@@ -115,6 +120,23 @@
       toggleterm = {
         enable = true;
       };
+
+      markdown-preview.enable = true;
     };
+
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "markdown";
+        src = pkgs.fetchFromGitHub {
+          owner = "MeanderingProgrammer";
+          repo = "markdown.nvim";
+          rev = "fca2903";
+          hash = "sha256-OvN+op1XPI/TJQ4lYWyr+lAIwX7fIbERNA3ccooEnAo=";
+        };
+      })
+    ];
+    extraConfigLua = ''
+      require("render-markdown").setup({});
+    '';
   };
 }
