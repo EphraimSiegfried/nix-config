@@ -1,70 +1,33 @@
 {
-  programs.nixvim.plugins.alpha = {
-    enable = true;
-    iconsEnabled = true;
-    layout =
-      [
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          opts = {
-            hl = "Type";
-            position = "center";
-          };
-          type = "text";
-          val = [
-            "                                     ,"
-            "              ,-.       _,---._ __  / \\"
-            "             /  )    .-'       `./ /   \\"
-            "            (  (   ,'            `/    /|"
-            "             \\  `-\"             \\'\\   / |"
-            "              `.              ,  \\ \\ /  |"
-            "               /`.          ,'-`----Y   |"
-            "              (            ;        |   '"
-            "              |  ,-.    ,-'         |  /"
-            "              |  | (   |       nvim | /"
-            "              )  |  \\  `.___________|/"
-            "              `--'   `--"
-          ];
-        }
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          type = "group";
-          opts.position = "center";
-          val = [
-            {
-              on_press = {
-                __raw = "function() vim.cmd[[ene]] end";
-              };
-              opts = {
-                shortcut = "n";
-              };
-              type = "button";
-              val = "  New file";
-            }
-            {
-              on_press = {
-                __raw = "function() vim.cmd[[qa]] end";
-              };
-              opts = {
-                shortcut = "q";
-              };
-              type = "button";
-              val = " Quit Neovim";
-            }
-          ];
-        }
-        {
-          type = "padding";
-          val = 2;
-        }
-      ];
+  programs.nixvim.plugins.alpha.enable = true;
+  programs.nixvim.plugins.alpha.theme = "dashboard";
 
-  };
+  programs.nixvim.extraConfigLua = ''
+          local logo = {
+              [[                                     ,]],
+              [[              ,-.       _,---._ __  / \]],
+              [[             /  )    .-'       `./ /   \]],
+              [[            (  (   ,'            `/    /|]],
+              [[             \  `-"             \'\   / |]],
+              [[              `.              ,  \ \ /  |]],
+              [[               /`.          ,'-`----Y   |]],
+              [[              (            ;        |   ']],
+              [[              |  ,-.    ,-'         |  /]],
+              [[              |  | (   |       nvim | /]],
+              [[              )  |  \  `.___________|/]],
+              [[              `--'   `--']],
+          }
+    	  local alpha = require("alpha")
+    	  local dashboard = require("alpha.themes.dashboard")
+    	  dashboard.section.header.val = logo
 
+    	  dashboard.section.buttons.val = {
+    		  dashboard.button("e", "   New file", ":ene <bar> startinsert <cr>"),
+    		  dashboard.button("f", "   Find file", ":Telescope find_files<cr>"),
+    		  dashboard.button("r", "   Recent", ":Telescope oldfiles<cr>"),
+    		  dashboard.button("q", "   Quit nvim", ":qa<CR>"),
+    	  }
+
+    	  alpha.setup(dashboard.opts)
+  '';
 }
