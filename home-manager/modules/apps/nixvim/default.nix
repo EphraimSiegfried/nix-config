@@ -3,6 +3,7 @@
     ripgrep
   ];
   imports = [
+    ./alpha.nix
   ];
   programs.nixvim = {
     enable = true;
@@ -35,6 +36,28 @@
         action = "<cmd>ToggleTerm<CR>";
         key = "<C-x>";
       }
+      {
+        action = "<cmd>VimtexCompile<CR>";
+        key = "<leader>ll";
+      }
+      {
+        action = "v:count == 0 ? 'gj': 'j'";
+        key = "j";
+        options.expr = true;
+        mode = [
+          "n"
+          "x"
+        ];
+      }
+      {
+        action = "v:count == 0 ? 'gk': 'k'";
+        key = "k";
+        options.expr = true;
+        mode = [
+          "n"
+          "x"
+        ];
+      }
     ];
 
 
@@ -49,6 +72,7 @@
           nixd.enable = true;
           cssls.enable = true;
           ccls.enable = true;
+          texlab.enable = true;
         };
       };
       # clangd-extensions.enable = true;
@@ -67,9 +91,15 @@
         enable = true;
         settings = {
           sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
+            {
+              name = "nvim_lsp";
+            }
+            {
+              name = "path";
+            }
+            {
+              name = "buffer";
+            }
           ];
           mapping = {
             "<C-Space>" = "cmp.mapping.complete()";
@@ -103,6 +133,11 @@
       treesitter = {
         enable = true;
         indent = true;
+        # settings = {
+        # ignore_install = [
+        #   "latex"
+        # ];
+        # };
       };
 
       neo-tree = {
@@ -122,7 +157,20 @@
       };
 
       markdown-preview.enable = true;
+
+      auto-save.enable = true;
+      vimtex = {
+        enable = true;
+        settings = {
+          indent_enabled = "1";
+          syntax_enabled = "1";
+          complete_enabled = "1";
+          tex_conceal = "abdmg";
+          view_method = "zathura";
+        };
+      };
     };
+
 
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {
