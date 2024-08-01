@@ -30,10 +30,10 @@
         "$mod, K, movefocus, u"
         "$mod, J, movefocus, d"
 
-        # "$mod, SHIFT, H, swapwindow, l"
-        # "$mod, SHIFT, L, swapwindow, r"
-        # "$mod, SHIFT, K, swapwindow, u"
-        # "$mod, SHIFT, J, swapwindow, d"
+        "$mod SHIFT, H, swapwindow, l"
+        "$mod SHIFT, L, swapwindow, r"
+        "$mod SHIFT, K, swapwindow, u"
+        "$mod SHIFT, J, swapwindow, d"
 
         "$mod, S, exec, grim - | wl-copy"
         "$mod SHIFT, S, exec, grim -g \"$(slurp)\" | wl-copy"
