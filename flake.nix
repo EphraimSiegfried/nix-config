@@ -2,25 +2,28 @@
   description = "Your new nix config";
 
   inputs = {
-    # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/e8057b67ebf307f01bdcc8fba94d94f75039d1f6"; # You can access packages and modules from different nixpkgs revs
-    # at the same time. Here's an working example:
-    #nixpkgs.master.url = "github:nixos/nixpkgs/master";
-    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
-    #nixpkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
-
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager/a7117efb3725e6197dd95424136f79147aa35e5b";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim. url = "github:nix-community/nixvim";
+
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+	inputs.nixpkgs.follows = "nixpkgs";
+    }; 
     nur.url = "github:nix-community/NUR";
+    darwin.url = "github:LnL7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
+    # inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs =
     { self
     , nixpkgs
     , home-manager
-    , ...
+    , darwin,
+     ...
     } @ inputs:
     let
       inherit (self) outputs;
@@ -64,6 +67,16 @@
           ];
         };
       };
+      darwinConfigurations = {
+	thymian = darwin.lib.darwinSystem {
+	  specialArgs = { inherit inputs outputs; };
+	  system = "x86_64-darwin";
+	  modules = [ 
+	  ./darwin/configuration.nix 
+	  ];
+	};
+      };
+
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
@@ -72,8 +85,14 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main home-manager configuration file <
-            ./home-manager/home.nix
+            ./home-manager/linux/home.nix
+          ];
+        };
+        "siegi@thymian" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-darwin; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/darwin/home.nix
           ];
         };
       };
