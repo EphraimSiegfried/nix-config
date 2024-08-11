@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-API_KEY="lol" # insert api key here
+API_KEY=$(cat ~/.config/sops-nix/secrets/weatherapi/api_key) # insert api key here
 CITY="Basel" # insert city here
 
 # first comment is description, second is icon number

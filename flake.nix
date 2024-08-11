@@ -7,14 +7,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim = {
-        url = "github:nix-community/nixvim";
-        # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-	inputs.nixpkgs.follows = "nixpkgs";
-    }; 
+      url = "github:nix-community/nixvim";
+      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
+    sops-nix.url = "github:Mic92/sops-nix";
     # inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
@@ -22,8 +22,8 @@
     { self
     , nixpkgs
     , home-manager
-    , darwin,
-     ...
+    , darwin
+    , ...
     } @ inputs:
     let
       inherit (self) outputs;
@@ -68,13 +68,13 @@
         };
       };
       darwinConfigurations = {
-	thymian = darwin.lib.darwinSystem {
-	  specialArgs = { inherit inputs outputs; };
-	  system = "x86_64-darwin";
-	  modules = [ 
-	  ./darwin/configuration.nix 
-	  ];
-	};
+        thymian = darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs outputs; };
+          system = "x86_64-darwin";
+          modules = [
+            ./darwin/configuration.nix
+          ];
+        };
       };
 
 
