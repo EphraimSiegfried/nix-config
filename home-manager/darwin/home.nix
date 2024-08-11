@@ -10,7 +10,6 @@
   # You can import other home-manager modules here
   imports = [
     ../shared
-    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   fonts.fontconfig.enable = true;
@@ -20,7 +19,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-      inputs.nixpkgs-firefox-darwin.overlay
     ];
     config = {
       allowUnfree = true;

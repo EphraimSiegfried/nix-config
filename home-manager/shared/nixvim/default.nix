@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./alpha.nix
+  ];
   home.packages = with pkgs; [
     ripgrep
-  ];
-  imports = [
-    ./alpha.nix
   ];
   programs.nixvim = {
     enable = true;
