@@ -6,7 +6,7 @@
   ];
 
   imports = [
-    ./spotify.nix.nix
+    ./spotify.nix
     ./firefox.nix
   ];
 
