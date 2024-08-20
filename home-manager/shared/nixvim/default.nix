@@ -71,8 +71,14 @@
       lsp = {
         enable = true;
         servers = {
-          nixd.enable = true;
+          # webdev
+          # tsserver.enable = true; // already enabled with prettier
+          tailwindcss.enable = true;
+          eslint.enable = true;
+          html.enable = true;
           cssls.enable = true;
+
+          nixd.enable = true;
           ccls.enable = true;
           texlab.enable = true;
           pyright.enable = true;
@@ -86,6 +92,10 @@
         enableLspFormat = true;
         sources.formatting = {
           nixpkgs_fmt.enable = true;
+          prettier = {
+            enable = true;
+            disableTsServerFormatter = true;
+          };
         };
       };
       lsp-format.enable = true;
@@ -152,12 +162,10 @@
 
       treesitter = {
         enable = true;
-        indent = true;
-        # settings = {
-        # ignore_install = [
-        #   "latex"
-        # ];
-        # };
+        settings = {
+          highlight.enable = true;
+          indent.enable = true;
+        };
       };
 
       neo-tree = {
