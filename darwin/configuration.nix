@@ -53,7 +53,7 @@
         _HIHideMenuBar = true;
       };
 
-      WindowManager.StandardHideWidgets = true;
+      WindowManager.StandardHideDesktopIcons = true;
       # TODO: Use a variable for home location (doesn't work with $HOME)
       screencapture.location = "Users/siegi/Pictures/screenshots";
     };
