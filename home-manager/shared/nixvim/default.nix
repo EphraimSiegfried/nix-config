@@ -2,6 +2,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./alpha.nix
+    ./toggleterm.nix
   ];
   home.packages = with pkgs; [
     ripgrep
@@ -182,13 +183,6 @@
 
       transparent.enable = true;
 
-      toggleterm = {
-        enable = true;
-        settings = {
-          open_mapping = "[[<C-x>]]";
-          start_in_insert = true;
-        };
-      };
 
       markdown-preview.enable = true;
 
@@ -220,6 +214,7 @@
     ];
     extraConfigLua = ''
       require("render-markdown").setup({});
+
     '';
   };
 }
