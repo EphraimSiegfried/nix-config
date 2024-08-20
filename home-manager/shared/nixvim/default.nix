@@ -34,10 +34,10 @@
         action = "<cmd>Neotree reveal<CR>";
         key = "<leader>E";
       }
-      {
-        action = "<cmd>ToggleTerm<CR>";
-        key = "<C-x>";
-      }
+      # {
+      #   action = "<cmd>ToggleTerm<CR>";
+      #   key = "<C-x>";
+      # }
       {
         action = "<cmd>VimtexCompile<CR>";
         key = "<leader>ll";
@@ -184,6 +184,10 @@
 
       toggleterm = {
         enable = true;
+        settings = {
+          open_mapping = "[[<C-x>]]";
+          start_in_insert = true;
+        };
       };
 
       markdown-preview.enable = true;
