@@ -16,6 +16,8 @@
       "whatsapp"
       "spotify"
       "firefox"
+      "qbittorrent"
+      "vlc"
     ];
   };
 }
