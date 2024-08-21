@@ -4,6 +4,7 @@
     ./brew.nix
     ./yabai.nix
     ./sketchybar.nix
+    ./jankyborders.nix
   ];
 
   nix = {
