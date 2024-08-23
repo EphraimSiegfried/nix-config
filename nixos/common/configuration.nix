@@ -1,0 +1,81 @@
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
+}: {
+  imports = [
+  ];
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+
+    ];
+    config = {
+      allowUnfree = true;
+    };
+  };
+
+  nix =
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
+    {
+      settings = {
+        # Enable flakes and new 'nix' command
+        experimental-features = "nix-command flakes";
+        # Opinionated: disable global registry
+        flake-registry = "";
+        # Workaround for https://github.com/NixOS/nix/issues/9574
+        nix-path = config.nix.nixPath;
+      };
+
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
+      # Opinionated: disable channels
+      channel.enable = false;
+
+      # Opinionated: make flake registry and nix path match flake inputs
+      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
+      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    };
+
+  users.users.siegi = {
+    isNormalUser = true;
+    description = "Ephraim Siegfried";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqWs4UGEkx+HwmzymPMSyBshtygcza0ov9u8uuLGPbH ephraimsiegfried@maces.home"
+    ];
+  };
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Set your time zone.
+  time.timeZone = "Europe/Zurich";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  environment.systemPackages = with pkgs; [
+    man-pages
+    neovim
+    git
+  ];
+
+  programs.zsh.enable = true;
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
+}

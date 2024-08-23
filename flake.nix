@@ -59,11 +59,19 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
+        # Desktop
         blinkybill = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
-            ./nixos/configuration.nix
+            ./nixos/desktop/configuration.nix
+          ];
+        };
+
+        # Server
+        zeus = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/server/configuration.nix
           ];
         };
       };
