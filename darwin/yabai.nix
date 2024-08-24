@@ -39,7 +39,6 @@
                 yabai -m rule --add app="^System Settings$" manage=off
                 yabai -m rule --add app="^System Information$" manage=off
                 yabai -m rule --add app="^Archive Utility$" manage=off
-                yabai -m rule --add app="Spotify" sticky=on
                 yabai -m rule --add app="DeepL" manage=off
                 yabai -m rule --add app="ColorSlurp" manage=off
       '';
