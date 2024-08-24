@@ -5,6 +5,7 @@
     ../common/configuration.nix
     # ./hardware-configuration.nix
     ./disk-config.nix
+    ./variables.nix
   ];
 
   networking = {
