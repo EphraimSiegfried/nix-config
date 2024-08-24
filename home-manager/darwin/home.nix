@@ -10,6 +10,7 @@
   # You can import other home-manager modules here
   imports = [
     ../shared
+    ./sops.nix
   ];
 
   fonts.fontconfig.enable = true;
