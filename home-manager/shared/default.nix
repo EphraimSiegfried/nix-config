@@ -7,6 +7,7 @@
 
   imports = [
     ./git.nix
+    ./ssh.nix
     ./zsh
     ./tmux.nix
     ./yazi.nix

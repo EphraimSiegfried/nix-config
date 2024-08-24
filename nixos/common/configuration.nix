@@ -48,19 +48,18 @@
       nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
 
+  services.openssh.enable = true;
+
   users.users.siegi = {
     isNormalUser = true;
     description = "Ephraim Siegfried";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqWs4UGEkx+HwmzymPMSyBshtygcza0ov9u8uuLGPbH ephraimsiegfried@maces.home"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqWs4UGEkx+HwmzymPMSyBshtygcza0ov9u8uuLGPbH"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1R2gEuXslK413gWBE4tOA894zO/MkhZrAK/LyRcsmo"
     ];
   };
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
@@ -72,6 +71,7 @@
     man-pages
     neovim
     git
+    curl
   ];
 
   programs.zsh.enable = true;
