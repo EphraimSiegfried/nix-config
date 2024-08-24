@@ -2,10 +2,14 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-
+      ipc = "on";
+      splash = false;
+      splash_offset = 2.0;
+      preload = [
+        "~/nix-config/wallpapers/clouds.png"
+      ];
       wallpaper = [
-        "DP-3,/share/wallpapers/buttons.png"
-        "DP-1,/share/wallpapers/cat_pacman.png"
+        ", ~/nix-config/wallpapers/clouds.png"
       ];
     };
   };

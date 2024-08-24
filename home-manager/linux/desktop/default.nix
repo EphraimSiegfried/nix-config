@@ -15,5 +15,6 @@
     ./waybar
     ./hypridle.nix
     ./wofi.nix
+    ./hyprpaper.nix
   ];
 }
