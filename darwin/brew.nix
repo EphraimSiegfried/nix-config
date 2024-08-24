@@ -18,6 +18,7 @@
       "firefox"
       "qbittorrent"
       "vlc"
+      "virtualbox"
     ];
   };
 }
