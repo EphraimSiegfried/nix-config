@@ -2,6 +2,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./alpha.nix
+    ./toggleterm.nix
   ];
   home.packages = with pkgs; [
     ripgrep
@@ -34,10 +35,10 @@
         action = "<cmd>Neotree reveal<CR>";
         key = "<leader>E";
       }
-      {
-        action = "<cmd>ToggleTerm<CR>";
-        key = "<C-x>";
-      }
+      # {
+      #   action = "<cmd>ToggleTerm<CR>";
+      #   key = "<C-x>";
+      # }
       {
         action = "<cmd>VimtexCompile<CR>";
         key = "<leader>ll";
@@ -60,6 +61,15 @@
           "x"
         ];
       }
+      {
+        # Clear search with <esc>
+        action = "<cmd>noh<cr><esc>";
+        key = "<esc>";
+        mode = [
+          "i"
+          "n"
+        ];
+      }
     ];
 
 
@@ -71,8 +81,14 @@
       lsp = {
         enable = true;
         servers = {
-          nixd.enable = true;
+          # webdev
+          # tsserver.enable = true; // already enabled with prettier
+          tailwindcss.enable = true;
+          eslint.enable = true;
+          html.enable = true;
           cssls.enable = true;
+
+          nixd.enable = true;
           ccls.enable = true;
           texlab.enable = true;
           pyright.enable = true;
@@ -86,6 +102,10 @@
         enableLspFormat = true;
         sources.formatting = {
           nixpkgs_fmt.enable = true;
+          prettier = {
+            enable = true;
+            disableTsServerFormatter = true;
+          };
         };
       };
       lsp-format.enable = true;
@@ -95,21 +115,35 @@
         settings = {
           sources = [
             {
-              name = "nvim_lsp";
+              name = "
+          nvim_lsp ";
             }
             {
-              name = "path";
+              name = "
+          path ";
             }
             {
-              name = "buffer";
+              name = "
+          buffer ";
             }
           ];
           mapping = {
-            "<C-Space>" = "cmp.mapping.complete()";
-            "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-e>" = "cmp.mapping.close()";
-            "<C-f>" = "cmp.mapping.scroll_docs(4)";
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
+            " <C-Space> " = "
+          cmp.mapping.complete
+          ()";
+            " <C-d> " = "
+            cmp.mapping.scroll_docs
+            (-4) ";
+            " <C-e> " = "
+            cmp.mapping.close
+            ()";
+            " <C-f> " = "
+              cmp.mapping.scroll_docs
+              (4) ";
+            " <CR> " = "
+              cmp.mapping.confirm
+              ({
+                select = true })";
             "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
           };
@@ -152,12 +186,10 @@
 
       treesitter = {
         enable = true;
-        indent = true;
-        # settings = {
-        # ignore_install = [
-        #   "latex"
-        # ];
-        # };
+        settings = {
+          highlight.enable = true;
+          indent.enable = true;
+        };
       };
 
       neo-tree = {
@@ -174,9 +206,6 @@
 
       transparent.enable = true;
 
-      toggleterm = {
-        enable = true;
-      };
 
       markdown-preview.enable = true;
 
@@ -208,6 +237,7 @@
     ];
     extraConfigLua = ''
       require("render-markdown").setup({});
+
     '';
   };
 }

@@ -1,10 +1,14 @@
 { pkgs, ... }:
 
+let
+  util_functions = builtins.readFile ./util.sh;
+in
 {
-  home.packages = with pkgs; [
-    zoxide
-    tldr
-  ];
+  home.packages = with pkgs;
+    [
+      zoxide
+      tldr
+    ];
   programs.eza = {
     enable = true;
   };
@@ -39,13 +43,11 @@
     };
 
     initExtra =
-      "
-          VI_MODE_SET_CURSOR=true
-
-        function run(){
-        nix-shell --quiet -p $1 --run \"$*\"
-    }
-    ";
+      '' 
+	VI_MODE_SET_CURSOR=true
+      ''
+      + util_functions
+    ;
   };
 
   programs.starship = {
