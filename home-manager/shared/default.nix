@@ -15,7 +15,6 @@
     ./sioyek.nix
     ./nixvim
     ./fonts.nix
-    ./sops.nix
   ];
 
 }
