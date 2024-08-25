@@ -6,10 +6,18 @@
     # ./hardware-configuration.nix
     ./disk-config.nix
     ./variables.nix
+    ./services
+    ./nginx.nix
   ];
+
+  #prevent server from suspending when laptop lid is closed
+  services.logind.lidSwitchExternalPower = "ignore";
 
   networking = {
     hostName = "zeus";
+    firewall = {
+      allowedTCPPorts = [ 22 80 81 443 ];
+    };
   };
   boot.loader.grub = {
     # no need to set devices, disko will add all devices that have a EF02 partition to the list already
