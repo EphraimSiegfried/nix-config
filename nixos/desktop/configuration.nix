@@ -26,6 +26,7 @@
     ./modules/hyprland.nix
     ./modules/gaming.nix
     ./modules/bluetooth.nix
+    ./modules/vpn.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -42,10 +43,8 @@
     xkb.variant = "";
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
   };
 
   # Enable CUPS to print documents.
