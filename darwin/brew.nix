@@ -1,11 +1,17 @@
 {
   homebrew = {
     enable = true;
-    onActivation.autoUpdate = false;
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = false;
+    };
+
     taps = [ ];
 
     brews = [
       "ifstat" # used in sketchybar
+      "mas"
+      "nmap"
     ];
 
     casks = [
@@ -20,5 +26,10 @@
       "vlc"
       "virtualbox"
     ];
+    masApps = {
+      "Wireguard" = 1451685025;
+    };
   };
+
+
 }
