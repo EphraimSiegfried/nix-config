@@ -12,6 +12,7 @@
       "ifstat" # used in sketchybar
       "mas"
       "nmap"
+      "iproute2mac"
     ];
 
     casks = [
@@ -25,6 +26,7 @@
       "qbittorrent"
       "vlc"
       "virtualbox"
+      "balenaetcher"
     ];
     masApps = {
       "Wireguard" = 1451685025;
