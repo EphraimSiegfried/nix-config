@@ -16,6 +16,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     # inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
+    # nixarr.url = "github:rasmus-kirk/nixarr";
 
     disko = {
       url = "github:nix-community/disko";
@@ -82,6 +83,7 @@
           system = "x86_64-linux";
           modules = [
             inputs.disko.nixosModules.disko
+            # inputs.nixarr.nixosModules.default
             ./nixos/server/configuration.nix
           ];
         };

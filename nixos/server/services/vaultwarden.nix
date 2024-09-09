@@ -1,7 +1,7 @@
 { config, ... }: {
   services.nginx.virtualHosts."vw.${config.domain}" = {
-    enableACME = true;
-    forceSSL = true;
+    # enableACME = true;
+    # forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:8002";
       recommendedProxySettings = true;
@@ -11,7 +11,7 @@
     enable = true;
     backupDir = config.dataDir + "/vaultwarden";
     config = {
-      DOMAIN = " https://vw.${config.domain}";
+      DOMAIN = " http://vw.${config.domain}";
       SIGNUPS_ALLOWED = false;
       ROCKET_ADDRESS = "127.0.0.1";
       ROCKET_PORT = 8002;

@@ -7,6 +7,6 @@
 
   security.acme = {
     acceptTerms = true;
-    defaults.email = "ephraim.siegfried@hotmail.com";
+    defaults.email = config.email;
   };
 }
