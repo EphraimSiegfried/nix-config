@@ -5,6 +5,7 @@
     ./yabai.nix
     ./sketchybar.nix
     ./jankyborders.nix
+    ./launchd.nix
   ];
 
   nix = {

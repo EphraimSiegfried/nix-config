@@ -92,6 +92,7 @@
           ccls.enable = true;
           texlab.enable = true;
           pyright.enable = true;
+          bashls.enable = true;
         };
       };
       # clangd-extensions.enable = true;
