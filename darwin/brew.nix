@@ -27,6 +27,7 @@
       "vlc"
       "virtualbox"
       "balenaetcher"
+      "nextcloud"
     ];
     masApps = {
       "Wireguard" = 1451685025;
