@@ -3,6 +3,14 @@
     globals.mapleader = " ";
     keymaps = [
       {
+        action = "bprev";
+        key = "H";
+      }
+      {
+        action = "bnext";
+        key = "L";
+      }
+      {
         action = "<cmd>Telescope live_grep<CR>";
         key = "<leader>fs";
       }
