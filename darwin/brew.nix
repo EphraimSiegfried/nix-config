@@ -13,6 +13,8 @@
       "mas"
       "nmap"
       "iproute2mac"
+
+      "postgresql"
     ];
 
     casks = [
@@ -28,6 +30,8 @@
       "virtualbox"
       "balenaetcher"
       "nextcloud"
+      "drawio"
+      "visual-studio-code"
     ];
     masApps = {
       "Wireguard" = 1451685025;

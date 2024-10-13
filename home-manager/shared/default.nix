@@ -15,6 +15,7 @@
     ./sioyek.nix
     ./nixvim
     ./fonts.nix
+    ./zathura.nix
   ];
 
 }
