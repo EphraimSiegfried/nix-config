@@ -4,6 +4,7 @@
     ./extra/alpha.nix
     ./extra/markdown.nix
     ./extra/toggleterm.nix
+    ./extra/definitions-or-references.nix
     ./snippet.nix
   ];
   home.packages = with pkgs; [
