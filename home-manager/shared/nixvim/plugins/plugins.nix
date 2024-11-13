@@ -16,7 +16,7 @@
 
     nvim-surround.enable = true;
 
-
+    trouble.enable = true;
 
     harpoon = {
       enable = true;
