@@ -5,7 +5,7 @@ source "$HOME/.config/sketchybar/icons.sh"
 
 IP_ADDRESS=$(scutil --nwi | grep address | sed 's/.*://' | tr -d ' ' | head -1)
 VPN=$(scutil --nc list | grep Connected | sed -E 's/.*"(.*)".*/\1/')
-SSID=$(networksetup -getairportnetwork en0 | awk -F': ' '{print $2}')
+SSID=$(ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}')
 
 if [[ $VPN != "" ]]; then
 	COLOR=$MAROON
