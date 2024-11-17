@@ -18,6 +18,11 @@
 
     trouble.enable = true;
 
+    inc-rename = {
+      enable = true;
+      # inputBufferType = "dressing";
+    };
+
     harpoon = {
       enable = true;
       keymaps = {

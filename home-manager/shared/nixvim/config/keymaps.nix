@@ -3,11 +3,11 @@
     globals.mapleader = " ";
     keymaps = [
       {
-        action = "bprev";
+        action = "<cmd>bprevious<CR>";
         key = "H";
       }
       {
-        action = "bnext";
+        action = "<cmd>bnext<CR>";
         key = "L";
       }
       {
@@ -30,6 +30,10 @@
       #   action = "<cmd>ToggleTerm<CR>";
       #   key = "<C-x>";
       # }
+      {
+        action = ":IncRename ";
+        key = "<leader>rn";
+      }
       {
         action = "<cmd>VimtexCompile<CR>";
         key = "<leader>ll";
