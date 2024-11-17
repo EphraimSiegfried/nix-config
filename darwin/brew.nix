@@ -32,6 +32,7 @@
       "nextcloud"
       "drawio"
       "visual-studio-code"
+      "pycharm"
     ];
     masApps = {
       "Wireguard" = 1451685025;
