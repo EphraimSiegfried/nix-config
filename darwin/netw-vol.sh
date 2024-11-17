@@ -2,7 +2,7 @@
 #
 home_ssid="siegi"
 
-get_ssid="$(networksetup -getairportnetwork en0 | sed -E 's,^Current Wi-Fi Network: (.+)$,\1,')"
+get_ssid="$(ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}')"
 set_volume(){
   osascript -e "set volume output volume $1"
 }
