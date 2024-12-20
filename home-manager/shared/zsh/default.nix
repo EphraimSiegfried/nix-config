@@ -41,9 +41,8 @@ in
     oh-my-zsh = {
       enable = true;
       plugins = [
-        " zoxide "
-        "
-          vi-mode "
+        "zoxide"
+        "vi-mode"
       ];
     };
 
