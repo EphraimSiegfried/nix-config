@@ -11,6 +11,7 @@
   imports = [
     ../shared
     ./sops.nix
+    ./sketchybar.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -31,11 +32,6 @@
     homeDirectory = "/Users/siegi";
     sessionVariables = {
       NIXOS_CONFIG = "~/nix-config/";
-    };
-
-    file.".config/sketchybar" = {
-      source = ./sketchybar;
-      recursive = true;
     };
 
     file."Pictures/screenshots/.keep".text = "";
