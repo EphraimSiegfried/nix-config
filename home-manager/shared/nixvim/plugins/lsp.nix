@@ -7,12 +7,13 @@
         eslint.enable = true;
         html.enable = true;
         cssls.enable = true;
-        docker-compose-language-service.enable = true;
+        docker_compose_language_service.enable = true;
         nixd.enable = true;
         ccls.enable = true;
         texlab.enable = true;
         pyright.enable = true;
         bashls.enable = true;
+        lua_ls.enable = true;
       };
     };
     lsp-signature.enable = true;

@@ -16,6 +16,8 @@
 
     nvim-surround.enable = true;
 
+    bufferline.enable = true;
+
     trouble.enable = true;
 
     inc-rename = {
@@ -101,7 +103,7 @@
       enable = true;
       modes = [ ":" "/" "?" ];
     };
-    nvim-colorizer.enable = true;
+    colorizer.enable = true;
 
     tmux-navigator.enable = true;
 
