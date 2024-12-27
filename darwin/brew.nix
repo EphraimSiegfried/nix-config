@@ -6,7 +6,9 @@
       autoUpdate = false;
     };
 
-    taps = [ ];
+    taps = [
+      "FelixKratz/formulae"
+    ];
 
     brews = [
       "ifstat" # used in sketchybar
@@ -19,7 +21,6 @@
 
     casks = [
       "sf-symbols" #used in sketchybar
-
       "alfred"
       "discord"
       "whatsapp"
@@ -33,6 +34,8 @@
       "drawio"
       "visual-studio-code"
       "pycharm"
+      "zoom"
+      "datagrip"
     ];
     masApps = {
       "Wireguard" = 1451685025;
