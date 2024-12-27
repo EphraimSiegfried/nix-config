@@ -2,10 +2,10 @@
   imports = [
     ./skhd.nix
     ./brew.nix
-    ./yabai.nix
     ./sketchybar.nix
     ./jankyborders.nix
     ./launchd.nix
+    ./aerospace.nix
   ];
 
   nix = {
