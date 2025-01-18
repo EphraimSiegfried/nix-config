@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./skhd.nix
     ./brew.nix
@@ -11,11 +12,14 @@
   nix = {
     package = pkgs.nix;
     settings = {
-      "extra-experimental-features" = [ "nix-command" "flakes" ];
+      "extra-experimental-features" = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
   nixpkgs = {
-    hostPlatform = "x86_64-darwin";
+    hostPlatform = "aarch64-darwin";
     config.allowUnfree = true;
   };
 
