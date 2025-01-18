@@ -15,12 +15,12 @@
       "mas"
       "nmap"
       "iproute2mac"
-
+      "sketchybar"
       "postgresql"
     ];
 
     casks = [
-      "sf-symbols" #used in sketchybar
+      "sf-symbols" # used in sketchybar
       "alfred"
       "discord"
       "whatsapp"
@@ -36,11 +36,13 @@
       "pycharm"
       "zoom"
       "datagrip"
+      "telegram"
+      "raycast"
+      "sioyek"
     ];
     masApps = {
       "Wireguard" = 1451685025;
     };
   };
-
 
 }
