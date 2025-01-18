@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.aerospace = {
     enable = true;
@@ -32,30 +33,49 @@
         alt-tab = "workspace-back-and-forth";
         alt-f = "fullscreen";
         alt-shift-f = "fullscreen --no-outer-gaps";
-        cmd-f = "macos-native-fullscreen";
+        # cmd-f = "macos-native-fullscreen";
         alt-shift-minus = "resize smart -50";
         alt-shift-equal = "resize smart +50";
         alt-shift-semicolon = "mode service";
       };
-      mode.service.binding =
-        {
-          alt-shift-h = [ "join-with left" "mode main" ];
-          alt-shift-j = [ "join-with down" "mode main" ];
-          alt-shift-k = [ "join-with up" "mode main" ];
-          alt-shift-l = [ "join-with right" "mode main" ];
-          backspace = [ "close-all-windows-but-current" "mode main" ];
-        };
-      exec-on-workspace-change = [ "/bin/bash" "-c" "/usr/local/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE" ];
+      mode.service.binding = {
+        alt-shift-h = [
+          "join-with left"
+          "mode main"
+        ];
+        alt-shift-j = [
+          "join-with down"
+          "mode main"
+        ];
+        alt-shift-k = [
+          "join-with up"
+          "mode main"
+        ];
+        alt-shift-l = [
+          "join-with right"
+          "mode main"
+        ];
+        backspace = [
+          "close-all-windows-but-current"
+          "mode main"
+        ];
+      };
+      # exec-on-workspace-change = [ "/bin/bash" "-c" "/run/current-system/sw/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE" ];
+      exec-on-workspace-change = [
+        "/bin/bash"
+        "-c"
+        "/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
+      ];
       gaps = {
         outer = {
-          left = 8;
-          bottom = 8;
-          top = 32;
-          right = 8;
+          left = 10;
+          bottom = 10;
+          top = 20;
+          right = 10;
         };
         inner = {
-          horizontal = 8;
-          vertical = 8;
+          horizontal = 10;
+          vertical = 10;
         };
 
       };
