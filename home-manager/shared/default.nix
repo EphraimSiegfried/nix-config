@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # home-manager
   home.packages = with pkgs; [
     jq
@@ -16,6 +17,7 @@
     ./nixvim
     ./fonts.nix
     ./zathura.nix
+    ./direnv.nix
   ];
 
 }
