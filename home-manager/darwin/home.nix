@@ -12,6 +12,7 @@
     ../shared
     ./sops.nix
     ./sketchybar.nix
+    ./zsh.nix
   ];
 
   fonts.fontconfig.enable = true;
