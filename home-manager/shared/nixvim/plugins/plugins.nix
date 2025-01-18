@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./lsp.nix
+    ./conform.nix
     ./extra/alpha.nix
     ./extra/markdown.nix
     ./extra/toggleterm.nix
