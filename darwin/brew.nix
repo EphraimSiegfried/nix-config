@@ -8,6 +8,7 @@
 
     taps = [
       "FelixKratz/formulae"
+      "KatharaFramework/kathara"
     ];
 
     brews = [
@@ -39,6 +40,13 @@
       "telegram"
       "raycast"
       "sioyek"
+      "docker"
+      "kathara"
+      "microsoft-excel"
+      "utm"
+      "intellij-idea"
+      "wireshark"
+      "zen-browser"
     ];
     masApps = {
       "Wireguard" = 1451685025;
