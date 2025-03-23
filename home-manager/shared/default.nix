@@ -3,6 +3,8 @@
   # home-manager
   home.packages = with pkgs; [
     jq
+    uv
+    fd
     #    drawio
   ];
 
@@ -18,6 +20,7 @@
     ./fonts.nix
     ./zathura.nix
     ./direnv.nix
+    ./sioyek.nix
   ];
 
 }
