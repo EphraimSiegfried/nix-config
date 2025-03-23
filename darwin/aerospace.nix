@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   services.aerospace = {
     enable = true;
@@ -37,6 +37,10 @@
         alt-shift-minus = "resize smart -50";
         alt-shift-equal = "resize smart +50";
         alt-shift-semicolon = "mode service";
+        shift-cmd-k = "exec-and-forget ${lib.getExe pkgs.kitty} --single-instance -d ~";
+        shift-cmd-s = "exec-and-forget open /Applications/Spotify.app";
+        shift-cmd-b = "exec-and-forget open -n '/Applications/Zen Browser.app'";
+
       };
       mode.service.binding = {
         alt-shift-h = [

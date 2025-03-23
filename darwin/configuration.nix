@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./skhd.nix
     ./brew.nix
     ./sketchybar.nix
     ./jankyborders.nix
@@ -27,9 +26,9 @@
     pkgs.home-manager
   ];
   programs.zsh.enable = true;
-  services.nix-daemon.enable = true;
 
   environment.darwinConfig = "$HOME/nix-config/flake.nix";
+  ids.gids.nixbld = 350;
 
   system = {
     stateVersion = 4;
@@ -75,6 +74,6 @@
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
   };
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
 }
