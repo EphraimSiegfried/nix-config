@@ -5,7 +5,7 @@
   };
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud28;
+    package = pkgs.nextcloud30;
     hostName = "cloud.${config.domain}";
     home = "${config.dataDir}/nextcloud";
     database.createLocally = true;
@@ -14,6 +14,7 @@
     config = {
       adminuser = "siegi";
       adminpassFile = config.sops.secrets."nextcloud/admin_pw".path;
+      dbtype = "sqlite";
     };
   };
 
