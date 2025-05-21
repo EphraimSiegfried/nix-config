@@ -18,20 +18,29 @@
     };
     lsp-signature.enable = true;
 
-    none-ls = {
-      enable = true;
-      enableLspFormat = true;
-      sources.formatting = {
-        nixpkgs_fmt.enable = true;
-        black.enable = true;
-        prettier = {
-          enable = true;
-          disableTsServerFormatter = true;
-        };
-      };
-    };
-    lsp-format.enable = true;
-
+    # none-ls = {
+    #   enable = true;
+    #   enableLspFormat = true;
+    #   sources.formatting = {
+    #     nixpkgs_fmt.enable = true;
+    #     black.enable = true;
+    #     prettier = {
+    #       enable = true;
+    #       disableTsServerFormatter = true;
+    #     };
+    #     stylua = {
+    #       settings = {
+    #         extra_args = [
+    #           "-i"
+    #           "2"
+    #           "-ci"
+    #         ];
+    #       };
+    #     };
+    #   };
+    # };
+    # lsp-format.enable = true;
+    #
     cmp = {
       enable = true;
       settings = {

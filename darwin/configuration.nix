@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
-    ./skhd.nix
     ./brew.nix
     ./sketchybar.nix
     ./jankyborders.nix
@@ -11,11 +11,14 @@
   nix = {
     package = pkgs.nix;
     settings = {
-      "extra-experimental-features" = [ "nix-command" "flakes" ];
+      "extra-experimental-features" = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
   nixpkgs = {
-    hostPlatform = "x86_64-darwin";
+    hostPlatform = "aarch64-darwin";
     config.allowUnfree = true;
   };
 
@@ -23,9 +26,9 @@
     pkgs.home-manager
   ];
   programs.zsh.enable = true;
-  services.nix-daemon.enable = true;
 
   environment.darwinConfig = "$HOME/nix-config/flake.nix";
+  ids.gids.nixbld = 350;
 
   system = {
     stateVersion = 4;
@@ -71,6 +74,6 @@
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
   };
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
 }

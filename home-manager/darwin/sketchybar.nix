@@ -1,6 +1,9 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   home.packages = with pkgs; [
     sbarlua
+    wttrbar
+    sketchyhelper
   ];
   xdg.configFile = {
     "sketchybar" = {
@@ -8,8 +11,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "EphraimSiegfried";
           repo = "sketchybar";
-          rev = "90e8a76";
-          sha256 = "sha256-d8fHkesOSaiXikaOrNX8izfSV+kwlwK0JLOYaARS7X4=";
+          rev = "750ea07";
+          sha256 = "sha256-fwilWnRASrjrq/xLMj2jQUDzifLKdn3MaWsWgfdMvrY=";
         };
       };
       recursive = true;
