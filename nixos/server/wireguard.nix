@@ -37,11 +37,6 @@ in
         publicKey = "7xuchR8Ai/LmyEtYsL/P/f3DsWlCfXoH3CbtvZi0qFU=";
         allowedIPs = [ "10.100.0.3/32" ];
       }
-      {
-        # rahel 
-        publicKey = "doZ/D2C8syYEmbJUiv7HT6f6rJkpJmx9GY52f7XchH0=";
-        allowedIPs = [ "10.100.0.4/32" ];
-      }
     ];
   };
 }

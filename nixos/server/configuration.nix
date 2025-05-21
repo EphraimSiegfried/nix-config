@@ -8,7 +8,7 @@
     ./variables.nix
     ./services
     ./nginx.nix
-    ./wireguard.nix
+    # ./wireguard.nix
     ./ssh.nix
   ];
 
@@ -19,7 +19,6 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdANrCkeXTrZha/w3pvg/vCZWmuRsy7cI6PmgVfWH8c" #desktop
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1R2gEuXslK413gWBE4tOA894zO/MkhZrAK/LyRcsmo" #macbook
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICl+v4ykpRc23POLsmG878jsaE6lmNt8lw+enCeiPjJ1" #rahel
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILZPZrDYjyjdmxzYEDsRYkTDvqx3+pA5z4pQJsuufXRk" #phone
     ];
   };
