@@ -10,6 +10,7 @@
     ./nginx.nix
     # ./wireguard.nix
     ./ssh.nix
+    ./clamav.nix
   ];
 
   #prevent server from suspending when laptop lid is closed
@@ -27,7 +28,7 @@
     hostName = "zeus";
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 80 81 443 ];
+      allowedTCPPorts = [ 22 80 443 ];
     };
   };
   boot.loader.grub = {
@@ -36,9 +37,4 @@
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
-
-  users.users.root.openssh.authorizedKeys.keys = [
-    # change this to your ssh key
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1R2gEuXslK413gWBE4tOA894zO/MkhZrAK/LyRcsmo"
-  ];
 }

@@ -5,7 +5,7 @@
   };
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud30;
+    package = pkgs.nextcloud31;
     hostName = "cloud.${config.domain}";
     home = "${config.dataDir}/nextcloud";
     database.createLocally = true;
@@ -19,6 +19,8 @@
   };
 
   services.nginx.virtualHosts."cloud.${config.domain}" = {
+    enableACME = true;
+    forceSSL = true;
     locations."/" = {
       recommendedProxySettings = true;
       proxyWebsockets = true;
