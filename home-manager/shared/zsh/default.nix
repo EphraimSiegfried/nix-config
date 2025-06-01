@@ -23,27 +23,27 @@ in
     shellAliases =
       let
         system_command =
-          if pkgs.system == "x86_64-darwin"
+          if pkgs.system == "aarch64-darwin"
           then "darwin-rebuild"
           else "sudo nixos-rebuild";
         open_command =
-          if pkgs.system == "x86_64-darwin"
+          if pkgs.system == "aarch64-darwin"
           then "open"
           else "xdg-open";
       in
       {
         # TODO:Find better solution for path and name
-        uhome = "home-manager switch --flake ~/nix-config/flake.nix#$(whoami)@$(hostname)";
-        usys = "${system_command} switch --flake ~/nix-config/flake.nix#$(hostname)";
+        uhome = "home-manager switch --flake ~/nix-config#$(whoami)@$(hostname)";
+        usys = "${system_command} switch --flake ~/nix-config#$(hostname)";
         lg = "lazygit"; # TODO: Might move to git module?
         open = "${open_command}";
       };
     oh-my-zsh = {
       enable = true;
       plugins = [
-        " zoxide "
-        "
-          vi-mode "
+        "zoxide"
+        "vi-mode"
+	"direnv"
       ];
     };
 

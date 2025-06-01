@@ -1,7 +1,7 @@
 { config, ... }: {
   services.nginx.virtualHosts."vw.${config.domain}" = {
-    # enableACME = true;
-    # forceSSL = true;
+    enableACME = true;
+    forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:8002";
       recommendedProxySettings = true;

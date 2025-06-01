@@ -3,11 +3,11 @@
     globals.mapleader = " ";
     keymaps = [
       {
-        action = "bprev";
+        action = "<cmd>bprevious<CR>";
         key = "H";
       }
       {
-        action = "bnext";
+        action = "<cmd>bnext<CR>";
         key = "L";
       }
       {
@@ -23,6 +23,14 @@
         key = "<leader>e";
       }
       {
+        action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
+        key = "<leader>xx";
+      }
+      {
+        action = "<cmd>:TermExec cmd=\"clear;python %\" direction=vertical size=60<cr>";
+        key = "<leader>r";
+      }
+      {
         action = "<cmd>Neotree reveal<CR>";
         key = "<leader>E";
       }
@@ -30,6 +38,10 @@
       #   action = "<cmd>ToggleTerm<CR>";
       #   key = "<C-x>";
       # }
+      {
+        action = ":IncRename ";
+        key = "<leader>rn";
+      }
       {
         action = "<cmd>VimtexCompile<CR>";
         key = "<leader>ll";

@@ -1,7 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # home-manager
   home.packages = with pkgs; [
     jq
+    uv
+    fd
     #    drawio
   ];
 
@@ -16,6 +19,8 @@
     ./nixvim
     ./fonts.nix
     ./zathura.nix
+    ./direnv.nix
+    ./sioyek.nix
   ];
 
 }

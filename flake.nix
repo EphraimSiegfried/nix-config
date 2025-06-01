@@ -96,8 +96,7 @@
       darwinConfigurations = {
         thymian = darwin.lib.darwinSystem {
           specialArgs = { inherit inputs outputs; };
-          system = "
-        x86_64-darwin ";
+          system = "aarch64-darwin";
           modules = [
             ./darwin/configuration.nix
           ];
@@ -125,7 +124,7 @@
         };
 
         "siegi@thymian" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/darwin/home.nix

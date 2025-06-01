@@ -1,14 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts =
-        [
-          "FiraCode"
-          "DroidSansMono"
-          "Hack"
-          "Meslo"
-        ];
-    })
+  home.packages = with pkgs.nerd-fonts; [
+    fira-code
+    droid-sans-mono
+    hack
+    meslo-lg
+    monaspace
   ];
 }

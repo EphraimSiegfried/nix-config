@@ -3,4 +3,6 @@
 pkgs: {
   # example = pkgs.callPackage ./example { };
   kidex = pkgs.callPackage ./kidex { };
+  sbarlua = pkgs.callPackage ./sbarlua { };
+  sketchyhelper = pkgs.callPackage ./sketchyhelper { };
 }

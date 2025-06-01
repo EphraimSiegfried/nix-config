@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./lsp.nix
+    ./conform.nix
     ./extra/alpha.nix
     ./extra/markdown.nix
     ./extra/toggleterm.nix
@@ -16,7 +17,14 @@
 
     nvim-surround.enable = true;
 
+    bufferline.enable = true;
 
+    trouble.enable = true;
+
+    inc-rename = {
+      enable = true;
+      # inputBufferType = "dressing";
+    };
 
     harpoon = {
       enable = true;
@@ -96,7 +104,7 @@
       enable = true;
       modes = [ ":" "/" "?" ];
     };
-    nvim-colorizer.enable = true;
+    colorizer.enable = true;
 
     tmux-navigator.enable = true;
 
