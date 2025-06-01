@@ -18,7 +18,7 @@
       let
         terminal = "kitty";
         browser = "firefox";
-        menu = "wofi --normal-window --show drun --terminal kitty --allow-images --lines 10";
+        menu = "anyrun";
       in
       [
         "ALTSHIFT, K, exec, ${terminal}"

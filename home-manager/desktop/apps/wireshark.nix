@@ -1,0 +1,3 @@
+{
+  wireshark.enable = true;
+}

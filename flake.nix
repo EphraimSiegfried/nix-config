@@ -18,6 +18,11 @@
     # inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
     # nixarr.url = "github:rasmus-kirk/nixarr";
 
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
