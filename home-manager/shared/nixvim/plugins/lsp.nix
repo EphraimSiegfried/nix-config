@@ -14,6 +14,17 @@
         pyright.enable = true;
         bashls.enable = true;
         lua_ls.enable = true;
+        clangd.enable = true;
+        hls = {
+          # haskell
+          installGhc = true;
+          enable = true;
+        };
+	rust_analyzer = {
+	  installCargo = true;
+	  installRustc = true;
+	  enable = true;
+	};
       };
     };
     lsp-signature.enable = true;

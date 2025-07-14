@@ -2,7 +2,7 @@
 {
   programs.nixvim.plugins = {
     conform-nvim = {
-      enable = true;
+      enable = false;
 
       luaConfig.pre = ''
         local slow_format_filetypes = {}
@@ -91,9 +91,9 @@
           markdown = [ "deno_fmt" ];
           nix = [ "nixfmt" ];
           python = [
-            "black"
-            "isort"
-            "ruff"
+            # "black"
+            # "isort"
+            # "ruff"
           ];
           rust = [ "rustfmt" ];
           sh = [
