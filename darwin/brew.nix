@@ -46,7 +46,12 @@
       "utm"
       "intellij-idea"
       "wireshark"
-      "zen-browser"
+      "google-chrome"
+      "clion"
+      "webstorm"
+      "protonvpn"
+      "skim"
+      "jellyfin-media-player"
     ];
     masApps = {
       "Wireguard" = 1451685025;
