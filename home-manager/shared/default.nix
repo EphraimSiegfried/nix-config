@@ -5,6 +5,8 @@
     jq
     uv
     fd
+    ripgrep
+    devenv
     #    drawio
   ];
 
