@@ -1,7 +1,9 @@
+{ lib, ... }:
 {
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
+      inlayHints = true;
       servers = {
         tailwindcss.enable = true;
         eslint.enable = true;
@@ -20,11 +22,11 @@
           installGhc = true;
           enable = true;
         };
-	rust_analyzer = {
-	  installCargo = true;
-	  installRustc = true;
-	  enable = true;
-	};
+        rust_analyzer = {
+          installCargo = true;
+          installRustc = true;
+          enable = true;
+        };
       };
     };
     lsp-signature.enable = true;

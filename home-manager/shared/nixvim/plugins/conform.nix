@@ -2,7 +2,7 @@
 {
   programs.nixvim.plugins = {
     conform-nvim = {
-      enable = false;
+      enable = true;
 
       luaConfig.pre = ''
         local slow_format_filetypes = {}

@@ -26,15 +26,15 @@
       # inputBufferType = "dressing";
     };
 
-    harpoon = {
-      enable = true;
-      keymaps = {
-        addFile = "<leader>h";
-        toggleQuickMenu = "<leader>H";
-        navNext = "<Tab>";
-        navPrev = "<S-Tab>";
-      };
-    };
+    # harpoon = {
+    #   enable = true;
+    #   keymaps = {
+    #     addFile = "<leader>h";
+    #     toggleQuickMenu = "<leader>H";
+    #     navNext = "<Tab>";
+    #     navPrev = "<S-Tab>";
+    #   };
+    # };
 
     navic = {
       enable = true;
