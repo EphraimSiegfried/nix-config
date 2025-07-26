@@ -1,12 +1,15 @@
-{ outputs
-, ...
-}: {
+{
+  outputs,
+  ...
+}:
+{
   imports = [
     ../shared/zsh
     ../shared/nixvim
     ../shared/git.nix
     ../shared/fonts.nix
     ../shared/tmux.nix
+    ../shared/packages.nix
   ];
   nixpkgs = {
     overlays = [

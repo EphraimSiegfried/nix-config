@@ -1,15 +1,5 @@
 { pkgs, ... }:
 {
-  # home-manager
-  home.packages = with pkgs; [
-    jq
-    uv
-    fd
-    ripgrep
-    devenv
-    #    drawio
-  ];
-
   imports = [
     ./git.nix
     ./ssh.nix
@@ -23,6 +13,7 @@
     ./zathura.nix
     ./direnv.nix
     ./sioyek.nix
+    ./packages.nix
   ];
 
 }
