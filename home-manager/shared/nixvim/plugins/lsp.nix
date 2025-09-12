@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   programs.nixvim.plugins = {
     lsp = {
@@ -12,7 +11,6 @@
         docker_compose_language_service.enable = true;
         nixd.enable = true;
         ccls.enable = true;
-        texlab.enable = true;
         pyright.enable = true;
         bashls.enable = true;
         lua_ls.enable = true;

@@ -48,10 +48,6 @@
         key = "<leader>rn";
       }
       {
-        action = "<cmd>VimtexCompile<CR>";
-        key = "<leader>ll";
-      }
-      {
         action = "v:count == 0 ? 'gj': 'j'";
         key = "j";
         options.expr = true;

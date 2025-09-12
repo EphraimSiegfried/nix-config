@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./lsp.nix
     ./conform.nix
@@ -102,7 +103,11 @@
 
     wilder = {
       enable = true;
-      modes = [ ":" "/" "?" ];
+      modes = [
+        ":"
+        "/"
+        "?"
+      ];
     };
     colorizer.enable = true;
 
@@ -112,20 +117,8 @@
 
     transparent.enable = true;
 
-
     markdown-preview.enable = true;
 
     # auto-save.enable = true;
-    vimtex = {
-      enable = true;
-      texlivePackage = pkgs.texlive.combined.scheme-full;
-      settings = {
-        indent_enabled = "1";
-        syntax_enabled = "1";
-        complete_enabled = "1";
-        tex_conceal = "abdmg";
-        view_method = "zathura";
-      };
-    };
   };
 }
