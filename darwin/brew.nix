@@ -16,7 +16,7 @@
       "mas"
       "nmap"
       "iproute2mac"
-      "sketchybar"
+      # "sketchybar"
       "postgresql"
     ];
 
@@ -51,6 +51,7 @@
       "skim"
       "jellyfin-media-player"
       "rustrover"
+      "obsidian"
     ];
     masApps = {
       "Wireguard" = 1451685025;
