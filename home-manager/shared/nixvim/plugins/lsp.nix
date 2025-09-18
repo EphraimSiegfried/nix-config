@@ -5,6 +5,8 @@
       inlayHints = true;
       servers = {
         tailwindcss.enable = true;
+        ts_ls.enable = true;
+        emmet_ls.enable = true;
         eslint.enable = true;
         html.enable = true;
         cssls.enable = true;
@@ -29,29 +31,6 @@
     };
     lsp-signature.enable = true;
 
-    # none-ls = {
-    #   enable = true;
-    #   enableLspFormat = true;
-    #   sources.formatting = {
-    #     nixpkgs_fmt.enable = true;
-    #     black.enable = true;
-    #     prettier = {
-    #       enable = true;
-    #       disableTsServerFormatter = true;
-    #     };
-    #     stylua = {
-    #       settings = {
-    #         extra_args = [
-    #           "-i"
-    #           "2"
-    #           "-ci"
-    #         ];
-    #       };
-    #     };
-    #   };
-    # };
-    # lsp-format.enable = true;
-    #
     cmp = {
       enable = true;
       settings = {
