@@ -4,6 +4,7 @@
       enable = true;
       inlayHints = true;
       servers = {
+        tinymist.enable = true; # typst
         tailwindcss.enable = true;
         ts_ls.enable = true;
         emmet_ls.enable = true;

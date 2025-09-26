@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./lsp.nix
@@ -87,6 +87,7 @@
 
     neo-tree = {
       enable = true;
+      filesystem.followCurrentFile.enabled = true;
     };
 
     indent-blankline.enable = true;
@@ -108,5 +109,23 @@
     transparent.enable = true;
 
     markdown-preview.enable = true;
+
+    typst-preview = {
+      enable = true;
+      settings = {
+        debug = true;
+        port = 8000;
+        get_main_file = config.lib.nixvim.mkRaw "
+	function(path_of_buffer)
+	  local root = os.getenv('TYPST_ROOT')
+	  if root then
+	    return root..'/main.typ'
+	  end
+	  return path_of_buffer
+	end
+	";
+
+      };
+    };
   };
 }
