@@ -52,6 +52,7 @@
       "jellyfin-media-player"
       "rustrover"
       "obsidian"
+      "brave-browser"
     ];
     masApps = {
       "Wireguard" = 1451685025;
