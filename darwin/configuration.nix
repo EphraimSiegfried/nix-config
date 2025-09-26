@@ -14,8 +14,13 @@
       "extra-experimental-features" = [
         "nix-command"
         "flakes"
+        "ca-derivations"
+        "git-hashing"
       ];
-      trusted-users = [ "root" "siegi" ];
+      trusted-users = [
+        "root"
+        "siegi"
+      ];
     };
   };
   nixpkgs = {
@@ -70,9 +75,9 @@
       remapCapsLockToEscape = true;
     };
 
-  activationScripts.activateSettings.text = ''
+    activationScripts.activateSettings.text = ''
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-  '';
+    '';
   };
   security.pam.services.sudo_local.touchIdAuth = true;
 
