@@ -10,8 +10,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "EphraimSiegfried";
           repo = "sketchybar";
-          rev = "61dcce0";
-          sha256 = "sha256-sCWCECEdhJQE6z+QrPPwIeEtfHmYwS/12hmuwLnQFtw=";
+          rev = "7f19d64";
+          sha256 = "sha256-yqBJcVqBtmR7tOzyvwsHFhC2H3UbjNdwo44w8THfgFc=";
         };
       };
       recursive = true;
