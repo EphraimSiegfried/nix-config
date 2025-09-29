@@ -54,9 +54,9 @@
       "obsidian"
       "brave-browser"
     ];
-    masApps = {
-      "Wireguard" = 1451685025;
-    };
+    # masApps = {
+    #   "Wireguard" = 1451685025;
+    # };
   };
 
 }
