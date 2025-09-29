@@ -1,7 +1,8 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   home.packages = with pkgs; [ kidex ];
   imports = [
-    inputs.anyrun.homeManagerModules.default
+    inputs.anyrun.homeModules.default
   ];
   programs.anyrun = {
     enable = true;
