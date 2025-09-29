@@ -190,6 +190,12 @@
           };
           stylua = {
             command = lib.getExe pkgs.stylua;
+            append_args = [
+              "--indent-width"
+              "2"
+              "--indent-type"
+              "Spaces"
+            ];
           };
           swift_format = {
             command = lib.getExe pkgs.swift-format;
