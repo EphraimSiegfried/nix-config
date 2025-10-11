@@ -1,12 +1,4 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
-}: {
+{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -26,6 +18,8 @@
     ./modules/hyprland.nix
     ./modules/gaming.nix
     ./modules/bluetooth.nix
+    ./modules/wireshark.nix
+    ./modules/hyprland.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -40,16 +34,15 @@
     enable = true;
     xkb.layout = "us";
     xkb.variant = "";
+    videoDrivers = [ "amdgpu" ];
   };
-
-  hardware.graphics = {
-    enable = true;
-  };
+  services.displayManager.ly.enable = true;
+  hardware.graphics.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
