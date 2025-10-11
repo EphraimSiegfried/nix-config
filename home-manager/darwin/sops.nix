@@ -1,6 +1,6 @@
 { inputs, config, ... }: {
   imports = [
-    inputs.sops-nix.homeManagerModules.sops
+    inputs.sops-nix.homeModules.sops
   ];
   home.sessionVariables = {
     SOPS_AGE_KEY_FILE = "${config.home.homeDirectory}/sops/age/keys.txt";
