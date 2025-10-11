@@ -8,8 +8,7 @@
   imports = [
     ./spotify.nix
     ./firefox.nix
-    ./nextcloud.nix
-    ./wireshark.nix
+    # ./nextcloud.nix
   ];
 
 }
