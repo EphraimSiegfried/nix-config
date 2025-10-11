@@ -43,11 +43,11 @@ in
       plugins = [
         "zoxide"
         "vi-mode"
-	"direnv"
+        "direnv"
       ];
     };
 
-    initExtra =
+    initContent =
       '' 
 	VI_MODE_SET_CURSOR=true
       ''
