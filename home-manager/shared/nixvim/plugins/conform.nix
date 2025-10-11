@@ -91,9 +91,9 @@
           markdown = [ "deno_fmt" ];
           nix = [ "nixfmt" ];
           python = [
-            # "black"
-            # "isort"
-            # "ruff"
+            "black"
+            "isort"
+            "ruff"
           ];
           rust = [ "rustfmt" ];
           sh = [
