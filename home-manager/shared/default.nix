@@ -14,6 +14,7 @@
     ./direnv.nix
     ./sioyek.nix
     ./packages.nix
+    ./latex.nix
   ];
 
 }
