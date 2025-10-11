@@ -26,16 +26,6 @@
       # inputBufferType = "dressing";
     };
 
-    harpoon = {
-      enable = true;
-      keymaps = {
-        addFile = "<leader>h";
-        toggleQuickMenu = "<leader>H";
-        navNext = "<Tab>";
-        navPrev = "<S-Tab>";
-      };
-    };
-
     navic = {
       enable = true;
       settings.lsp.auto_attach = true;
