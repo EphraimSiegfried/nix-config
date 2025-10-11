@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{
   wayland.windowManager.hyprland.enable = true;
 
   home.sessionVariables = {
@@ -41,12 +41,14 @@
         "$mod, TAB, focuscurrentorlast"
 
         "ALT, Q, killactive"
+        "ALT, W, killactive"
         "$mod, F, fullscreen"
-      ] ++ (
+      ]
+      ++ (
         # workspaces
         # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-        builtins.concatLists (builtins.genList
-          (
+        builtins.concatLists (
+          builtins.genList (
             x:
             let
               ws =
@@ -59,8 +61,8 @@
               "$mod, ${ws}, workspace, ${toString (x + 1)}"
               "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
             ]
-          )
-          10)
+          ) 10
+        )
       );
   };
 }
