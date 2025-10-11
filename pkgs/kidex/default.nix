@@ -1,8 +1,12 @@
-{ lib, fetchFromGitHub, rustPlatform }:
+{
+  lib,
+  fetchFromGitHub,
+  rustPlatform,
+}:
 
 rustPlatform.buildRustPackage rec {
   pname = "kidex";
-  version = "0.1.1";
+  version = "0.1.2";
 
   src = fetchFromGitHub {
     owner = "Kirottu";
@@ -11,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-LgY4hYJOzGSNZxOK1O4L6A+4/qgv4dhouKo0nLKK25A=";
   };
 
-  cargoHash = "sha256-BkpiJZZ83RrSSmbxM/TBl8rx5wIxLwYDZvFWdTwlUSI=";
+  cargoHash = "sha256-JhGsWYUQOpPfRAjeL1NNz1B1j+jONBgynDRnvLfH7PM=";
 
   meta = {
     description = "A simple file indexing service";

@@ -21,8 +21,8 @@
 @define-color shadow_color black;
 
 * {
-	font-family: FiraCode;
-	font-size: 16px;
+	font-family: MonaspaceNeon;
+	font-size: 20px;
 	border-radius: 0.3em;
 }
 

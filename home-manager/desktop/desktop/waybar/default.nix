@@ -1,4 +1,8 @@
+{ pkgs, ... }:
 {
+  home.packages = [
+    pkgs.monaspace
+  ];
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -52,7 +56,11 @@
           critical-threshold = 90;
           interval = 5;
           format = "{icon} {temperatureC}°";
-          format-icons = [ "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+          ];
           tooltip = false;
         };
 
@@ -98,7 +106,11 @@
           format-icons = {
             headphone = "󰋋";
             headset = "󰋎";
-            default = [ "󰕿" "󰖀" "󰕾" ];
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
           };
           on-click = "pavucontrol";
         };
