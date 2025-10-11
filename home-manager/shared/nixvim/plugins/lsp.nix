@@ -2,45 +2,36 @@
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
+      inlayHints = true;
       servers = {
+        tinymist.enable = true; # typst
         tailwindcss.enable = true;
+        ts_ls.enable = true;
+        emmet_ls.enable = true;
         eslint.enable = true;
         html.enable = true;
         cssls.enable = true;
         docker_compose_language_service.enable = true;
         nixd.enable = true;
         ccls.enable = true;
-        texlab.enable = true;
         pyright.enable = true;
         bashls.enable = true;
         lua_ls.enable = true;
+        clangd.enable = true;
+        hls = {
+          # haskell
+          installGhc = true;
+          enable = true;
+        };
+        rust_analyzer = {
+          installCargo = true;
+          installRustc = true;
+          enable = true;
+        };
       };
     };
     lsp-signature.enable = true;
 
-    # none-ls = {
-    #   enable = true;
-    #   enableLspFormat = true;
-    #   sources.formatting = {
-    #     nixpkgs_fmt.enable = true;
-    #     black.enable = true;
-    #     prettier = {
-    #       enable = true;
-    #       disableTsServerFormatter = true;
-    #     };
-    #     stylua = {
-    #       settings = {
-    #         extra_args = [
-    #           "-i"
-    #           "2"
-    #           "-ci"
-    #         ];
-    #       };
-    #     };
-    #   };
-    # };
-    # lsp-format.enable = true;
-    #
     cmp = {
       enable = true;
       settings = {

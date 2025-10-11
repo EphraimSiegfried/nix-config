@@ -91,9 +91,9 @@
           markdown = [ "deno_fmt" ];
           nix = [ "nixfmt" ];
           python = [
-            "black"
-            "isort"
-            "ruff"
+            # "black"
+            # "isort"
+            # "ruff"
           ];
           rust = [ "rustfmt" ];
           sh = [
@@ -190,6 +190,12 @@
           };
           stylua = {
             command = lib.getExe pkgs.stylua;
+            append_args = [
+              "--indent-width"
+              "2"
+              "--indent-type"
+              "Spaces"
+            ];
           };
           swift_format = {
             command = lib.getExe pkgs.swift-format;

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
   # TODO: call this through pkgs (does not work for some reason)
-  sbarlua = pkgs.callPackage ../pkgs/sbarlua { };
   sketchybarhelper = pkgs.callPackage ../pkgs/sketchyhelper { };
 
 in

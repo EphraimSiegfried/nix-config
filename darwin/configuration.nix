@@ -14,6 +14,12 @@
       "extra-experimental-features" = [
         "nix-command"
         "flakes"
+        "ca-derivations"
+        "git-hashing"
+      ];
+      trusted-users = [
+        "root"
+        "siegi"
       ];
     };
   };
@@ -31,6 +37,7 @@
   ids.gids.nixbld = 350;
 
   system = {
+    primaryUser = "siegi";
     stateVersion = 4;
     defaults = {
 
@@ -68,9 +75,7 @@
       remapCapsLockToEscape = true;
     };
 
-    activationScripts.postUserActivation.text = ''
-      # activateSettings -u will reload the settings from the database and apply them to the current session,
-      # so we do not need to logout and login again to make the changes take effect.
+    activationScripts.activateSettings.text = ''
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
   };

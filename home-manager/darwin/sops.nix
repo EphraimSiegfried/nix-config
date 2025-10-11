@@ -1,4 +1,5 @@
-{ inputs, config, ... }: {
+{ inputs, config, ... }:
+{
   imports = [
     inputs.sops-nix.homeModules.sops
   ];

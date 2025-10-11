@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins = {
       luasnip = {
@@ -11,10 +12,13 @@
         };
         fromLua = [
           {
-            paths = [ ./snippets ];
+            paths = [
+              ./snippets
+            ];
           }
         ];
       };
+      luasnip.fromVscode = [ { exclude = [ "tex" ]; } ];
       friendly-snippets.enable = true;
     };
 
@@ -24,17 +28,15 @@
     #     src = pkgs.fetchFromGitHub {
     #       owner = "evesdropper";
     #       repo = "luasnip-latex-snippets.nvim";
-    #       rev = "c6b5b53";
+    #       rev = "e72dc5f";
     #       hash = "sha256-OvN+op1XPI/TJQ4lYWyr+lAIwX7fIbERNA3ccooEnAo=";
     #     };
     #   })
     # ];
-
+    #
     # extraConfigLua = ''
-    #   -- require("luasnip.loaders.from_vscode").load {
-    #   --     exclude = { "tex" },
-    #   -- }
-    #   -- require("luasnip-latex-snippets.nvim")
+    #   require("luasnip-latex-snippets")
+    #
     # '';
   };
 

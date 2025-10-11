@@ -1,7 +1,12 @@
+{ lib, ... }:
 {
   programs.nixvim = {
     globals.mapleader = " ";
     keymaps = [
+      {
+        action = "<cmd>lua vim.diagnostic.open_float()<CR>";
+        key = "<leader>d";
+      }
       {
         action = "<cmd>bprevious<CR>";
         key = "H";
@@ -41,10 +46,6 @@
       {
         action = ":IncRename ";
         key = "<leader>rn";
-      }
-      {
-        action = "<cmd>VimtexCompile<CR>";
-        key = "<leader>ll";
       }
       {
         action = "v:count == 0 ? 'gj': 'j'";

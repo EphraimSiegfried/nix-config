@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [
     ./lsp.nix
     ./conform.nix
@@ -86,13 +87,18 @@
 
     neo-tree = {
       enable = true;
+      filesystem.followCurrentFile.enabled = true;
     };
 
     indent-blankline.enable = true;
 
     wilder = {
       enable = true;
-      modes = [ ":" "/" "?" ];
+      modes = [
+        ":"
+        "/"
+        "?"
+      ];
     };
     colorizer.enable = true;
 
@@ -102,19 +108,23 @@
 
     transparent.enable = true;
 
-
     markdown-preview.enable = true;
 
-    # auto-save.enable = true;
-    vimtex = {
+    typst-preview = {
       enable = true;
-      texlivePackage = pkgs.texlive.combined.scheme-full;
       settings = {
-        indent_enabled = "1";
-        syntax_enabled = "1";
-        complete_enabled = "1";
-        tex_conceal = "abdmg";
-        view_method = "zathura";
+        debug = true;
+        port = 8000;
+        get_main_file = config.lib.nixvim.mkRaw "
+	function(path_of_buffer)
+	  local root = os.getenv('TYPST_ROOT')
+	  if root then
+	    return root..'/main.typ'
+	  end
+	  return path_of_buffer
+	end
+	";
+
       };
     };
   };

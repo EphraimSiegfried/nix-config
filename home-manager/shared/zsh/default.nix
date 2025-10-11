@@ -4,11 +4,10 @@ let
   util_functions = builtins.readFile ./util.sh;
 in
 {
-  home.packages = with pkgs;
-    [
-      zoxide
-      tldr
-    ];
+  home.packages = with pkgs; [
+    zoxide
+    tldr
+  ];
   programs.eza = {
     enable = true;
   };
@@ -23,13 +22,8 @@ in
     shellAliases =
       let
         system_command =
-          if pkgs.system == "aarch64-darwin"
-          then "darwin-rebuild"
-          else "sudo nixos-rebuild";
-        open_command =
-          if pkgs.system == "aarch64-darwin"
-          then "open"
-          else "xdg-open";
+          if pkgs.system == "aarch64-darwin" then "sudo darwin-rebuild" else "sudo nixos-rebuild";
+        open_command = if pkgs.system == "aarch64-darwin" then "open" else "xdg-open";
       in
       {
         # TODO:Find better solution for path and name
