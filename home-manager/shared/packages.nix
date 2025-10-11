@@ -6,5 +6,7 @@
     fd
     ripgrep
     devenv
+    comma
+    nix-index
   ];
 }
