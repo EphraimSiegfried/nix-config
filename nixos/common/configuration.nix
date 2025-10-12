@@ -1,4 +1,12 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./sops.nix
   ];
@@ -7,9 +15,9 @@
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      outputs.overlays.stable-packages
     ];
-    config. allowUnfree = true;
+    config.allowUnfree = true;
   };
 
   nix =
@@ -44,7 +52,12 @@
   users.users.siegi = {
     isNormalUser = true;
     description = "Ephraim Siegfried";
-    extraGroups = [ "networkmanager" "wheel" "docker" "wireguard" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "wireguard"
+    ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqWs4UGEkx+HwmzymPMSyBshtygcza0ov9u8uuLGPbH"
