@@ -17,7 +17,7 @@
     bind =
       let
         terminal = "kitty";
-        browser = "firefox";
+        browser = "brave";
         menu = "anyrun";
       in
       [
