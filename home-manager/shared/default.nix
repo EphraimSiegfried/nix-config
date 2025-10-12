@@ -15,7 +15,6 @@
     ./sioyek.nix
     ./packages.nix
     ./latex.nix
-    ./gitui.nix
   ];
 
 }
