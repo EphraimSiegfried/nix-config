@@ -15,13 +15,6 @@
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
-    # inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
-    # nixarr.url = "github:rasmus-kirk/nixarr";
-
-    # anyrun = {
-    #   url = "github:anyrun-org/anyrun";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     disko = {
       url = "github:nix-community/disko";
