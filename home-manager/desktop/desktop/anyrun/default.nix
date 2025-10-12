@@ -5,6 +5,7 @@
     # inputs.anyrun.homeManagerModules.default
   ];
   programs.anyrun = {
+    package = pkgs.stable.anyrun;
     enable = true;
     config = {
       y.fraction = 0.3;
@@ -18,7 +19,7 @@
       maxEntries = 10;
 
       plugins = [
-        "${pkgs.anyrun}/lib/libapplications.so"
+        "${pkgs.stable.anyrun}/lib/libapplications.so"
         # "${pkgs.anyrun}/lib/libkidex.so"
       ];
 
