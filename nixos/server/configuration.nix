@@ -1,4 +1,10 @@
-{ modulesPath, inputs, outputs, ... }: {
+{
+  modulesPath,
+  inputs,
+  outputs,
+  ...
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -18,9 +24,9 @@
 
   users.users.siegi = {
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdANrCkeXTrZha/w3pvg/vCZWmuRsy7cI6PmgVfWH8c" #desktop
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1R2gEuXslK413gWBE4tOA894zO/MkhZrAK/LyRcsmo" #macbook
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILZPZrDYjyjdmxzYEDsRYkTDvqx3+pA5z4pQJsuufXRk" #phone
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdANrCkeXTrZha/w3pvg/vCZWmuRsy7cI6PmgVfWH8c" # desktop
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1R2gEuXslK413gWBE4tOA894zO/MkhZrAK/LyRcsmo" # macbook
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILZPZrDYjyjdmxzYEDsRYkTDvqx3+pA5z4pQJsuufXRk" # phone
     ];
   };
 
@@ -28,7 +34,11 @@
     hostName = "zeus";
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 80 443 ];
+      allowedTCPPorts = [
+        22
+        80
+        443
+      ];
     };
   };
   boot.loader.grub = {

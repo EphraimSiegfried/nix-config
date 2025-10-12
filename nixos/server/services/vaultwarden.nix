@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   services.nginx.virtualHosts."vw.${config.domain}" = {
     enableACME = true;
     forceSSL = true;

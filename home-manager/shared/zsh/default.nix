@@ -41,12 +41,10 @@ in
       ];
     };
 
-    initContent =
-      '' 
-	VI_MODE_SET_CURSOR=true
-      ''
-      + util_functions
-    ;
+    initContent = ''
+      	VI_MODE_SET_CURSOR=true
+    ''
+    + util_functions;
   };
 
   programs.starship = {

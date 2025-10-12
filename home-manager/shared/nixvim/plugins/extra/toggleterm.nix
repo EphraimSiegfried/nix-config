@@ -8,11 +8,12 @@
     };
   };
 
-  programs.nixvim.keymaps = [{
-    action = "<cmd>lua _lazygit_toggle()<CR>";
-    key = "<leader>g";
-  }];
-
+  programs.nixvim.keymaps = [
+    {
+      action = "<cmd>lua _lazygit_toggle()<CR>";
+      key = "<leader>g";
+    }
+  ];
 
   programs.nixvim.extraConfigLua = ''
     local Terminal = require("toggleterm.terminal").Terminal

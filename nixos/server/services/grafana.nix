@@ -1,5 +1,6 @@
-{ config, ... }: {
-  # grafana configuration ♡ 
+{ config, ... }:
+{
+  # grafana configuration ♡
   services.grafana = {
     enable = true;
     settings.server = {

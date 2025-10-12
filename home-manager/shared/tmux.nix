@@ -1,15 +1,15 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     sesh
   ];
 
   programs.tmux = {
     enable = true;
-    plugins = with pkgs;
-      [
-        tmuxPlugins.better-mouse-mode
-        tmuxPlugins.catppuccin
-      ];
+    plugins = with pkgs; [
+      tmuxPlugins.better-mouse-mode
+      tmuxPlugins.catppuccin
+    ];
 
     extraConfig = ''
       bind-key "T" run-shell "sesh connect \"$(

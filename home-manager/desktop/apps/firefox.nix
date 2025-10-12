@@ -1,4 +1,10 @@
-{ pkgs, config, inputs, ... }: {
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
+{
   imports = [
     inputs.nur.modules.homeManager.default
   ];
@@ -12,7 +18,7 @@
       #   bitwarden
       # ];
       settings = {
-        "extensions.autoDisableScopes" = 0; #automatically enable extensions
+        "extensions.autoDisableScopes" = 0; # automatically enable extensions
       };
     };
   };
