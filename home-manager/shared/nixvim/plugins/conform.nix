@@ -70,15 +70,15 @@
             "shellharden"
             "shfmt"
           ];
-          bicep = [ "bicep" ];
+          # bicep = [ "bicep" ];
           c = [ "clang_format" ];
           cmake = [ "cmake-format" ];
           cpp = [ "clang_format" ];
           cs = [ "csharpier" ];
           css = [ "stylelint" ];
-          fish = [ "fish_indent" ];
-          fsharp = [ "fantomas" ];
-          gdscript = [ "gdformat" ];
+          # fish = [ "fish_indent" ];
+          # fsharp = [ "fantomas" ];
+          # gdscript = [ "gdformat" ];
           java = [ "google-java-format" ];
           javascript = {
             __unkeyed-1 = "biome";
@@ -102,26 +102,26 @@
             "shfmt"
           ];
           sql = [ "sqlfluff" ];
-          swift = [ "swift_format" ];
-          terraform = [ "terraform_fmt" ];
-          toml = [ "taplo" ];
+          # swift = [ "swift_format" ];
+          # terraform = [ "terraform_fmt" ];
+          # toml = [ "taplo" ];
           typescript = {
             __unkeyed-1 = "biome";
             __unkeyed-2 = "prettierd";
             timeout_ms = 2000;
             stop_after_first = true;
           };
-          xml = [
-            "xmlformat"
-            "xmllint"
-          ];
+          # xml = [
+          #   "xmlformat"
+          #   "xmllint"
+          # ];
           yaml = [ "yamlfmt" ];
-          zig = [ "zigfmt" ];
-          "_" = [
-            "squeeze_blanks"
-            "trim_whitespace"
-            "trim_newlines"
-          ];
+          # zig = [ "zigfmt" ];
+          # "_" = [
+          #   "squeeze_blanks"
+          #   "trim_whitespace"
+          #   "trim_newlines"
+          # ];
         };
 
         formatters = {
@@ -197,24 +197,24 @@
               "Spaces"
             ];
           };
-          swift_format = {
-            command = lib.getExe pkgs.swift-format;
-          };
-          taplo = {
-            command = lib.getExe pkgs.taplo;
-          };
-          terraform_fmt = {
-            command = lib.getExe pkgs.terraform;
-          };
+          # swift_format = {
+          #   command = lib.getExe pkgs.swift-format;
+          # };
+          # taplo = {
+          #   command = lib.getExe pkgs.taplo;
+          # };
+          # terraform_fmt = {
+          #   command = lib.getExe pkgs.terraform;
+          # };
           xmlformat = {
             command = lib.getExe pkgs.xmlformat;
           };
           yamlfmt = {
             command = lib.getExe pkgs.yamlfmt;
           };
-          zigfmt = {
-            command = lib.getExe pkgs.zig;
-          };
+          # zigfmt = {
+          #   command = lib.getExe pkgs.zig;
+          # };
         };
       };
     };
