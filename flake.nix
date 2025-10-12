@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "This is the config of siegi";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
