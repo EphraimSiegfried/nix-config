@@ -32,10 +32,6 @@
         key = "<leader>xx";
       }
       {
-        action = "<cmd>:TermExec cmd=\"clear;python %\" direction=vertical size=60<cr>";
-        key = "<leader>r";
-      }
-      {
         action = "<cmd>Neotree reveal<CR>";
         key = "<leader>E";
       }
