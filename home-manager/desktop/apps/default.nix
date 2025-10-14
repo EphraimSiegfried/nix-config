@@ -1,8 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # home-manager
   home.packages = with pkgs; [
     jq
     drawio
+    brave
   ];
 
   imports = [

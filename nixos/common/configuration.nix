@@ -1,15 +1,24 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./sops.nix
+    ./users.nix
   ];
 
   nixpkgs = {
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      outputs.overlays.stable-packages
     ];
-    config. allowUnfree = true;
+    config.allowUnfree = true;
   };
 
   nix =
@@ -40,17 +49,6 @@
     };
 
   services.openssh.enable = true;
-
-  users.users.siegi = {
-    isNormalUser = true;
-    description = "Ephraim Siegfried";
-    extraGroups = [ "networkmanager" "wheel" "docker" "wireguard" ];
-    shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqWs4UGEkx+HwmzymPMSyBshtygcza0ov9u8uuLGPbH"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1R2gEuXslK413gWBE4tOA894zO/MkhZrAK/LyRcsmo"
-    ];
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/Zurich";

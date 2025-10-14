@@ -5,7 +5,7 @@
     enable = true;
     keyboards = {
       # name of keyboard is arbitrary, works with all keyboards
-      "keychron".config = '' 
+      "keychron".config = ''
         (defsrc)
         (deflayermap (base-layer)
           caps esc

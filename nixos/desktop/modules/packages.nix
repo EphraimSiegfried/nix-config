@@ -1,15 +1,15 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  ...
+}:
+{
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
     git
-    kitty
-    spotify
     discord
     webcord
     git
   ];
-  programs.zsh.enable = true;
-  programs.firefox.enable = true;
 }

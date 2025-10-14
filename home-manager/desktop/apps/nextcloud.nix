@@ -10,9 +10,10 @@ in
   ];
 
   sops.secrets."nextcloud/admin_pw" = { };
-  sops.templates.".netrc".content = ''default
-    login ${user}
-    password ${config.sops.placeholder."nextcloud/admin_pw"}
+  sops.templates.".netrc".content = ''
+    default
+        login ${user}
+        password ${config.sops.placeholder."nextcloud/admin_pw"}
   '';
   # systemd.user = {
   #   services.nextcloud-autosync = {

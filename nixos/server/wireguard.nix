@@ -28,12 +28,12 @@ in
     '';
     peers = [
       {
-        # phone 
+        # phone
         publicKey = "Sqj6Z9tL4YbVUKDYBbieMfJoavf1pnkSqTCRBaotUF0=";
         allowedIPs = [ "10.100.0.2/32" ];
       }
       {
-        # macbook 
+        # macbook
         publicKey = "7xuchR8Ai/LmyEtYsL/P/f3DsWlCfXoH3CbtvZi0qFU=";
         allowedIPs = [ "10.100.0.3/32" ];
       }

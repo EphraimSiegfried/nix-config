@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   sops.secrets."nextcloud/admin_pw" = {
     owner = "nextcloud";
     group = "nextcloud";

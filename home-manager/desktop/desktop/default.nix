@@ -14,6 +14,7 @@
     ./hyprland.nix
     # ./swaync.nix
     ./waybar
+    ./walker.nix
     # ./hyprpanel.nix
     ./hypridle.nix
     # ./wofi.nix
