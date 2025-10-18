@@ -40,7 +40,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
-    {
+    rec {
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
       overlays = import ./overlays { inherit inputs; };
@@ -105,6 +105,14 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/darwin/home.nix
+          ];
+        };
+
+        "siegi" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/server/home.nix
           ];
         };
       };
