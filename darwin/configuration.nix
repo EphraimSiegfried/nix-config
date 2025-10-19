@@ -6,6 +6,7 @@
     ./jankyborders.nix
     ./launchd.nix
     ./aerospace.nix
+    ./linux-builder.nix
   ];
 
   nix = {
@@ -22,6 +23,10 @@
         "siegi"
       ];
     };
+    # works only if when running `softwareupdate --install-rosetta --agree-to-license`
+    extraOptions = ''
+      extra-platforms = x86_64-darwin aarch64-darwin
+    '';
   };
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
