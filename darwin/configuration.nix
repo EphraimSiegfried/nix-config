@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
   imports = [
     ./brew.nix
@@ -29,6 +29,11 @@
     '';
   };
   nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
+    ];
     hostPlatform = "aarch64-darwin";
     config.allowUnfree = true;
   };

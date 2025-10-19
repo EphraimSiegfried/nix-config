@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "custom": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1760857286,
+        "narHash": "sha256-TOEC/3MoIZDIRhrbqpSgNlzQGkPiCXp9E+migYgamEs=",
+        "owner": "EphraimSiegfried",
+        "repo": "nur-packages",
+        "rev": "6c22b8e3a55dc93eb4df3b04a604f913c40171c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EphraimSiegfried",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -279,6 +299,7 @@
     },
     "root": {
       "inputs": {
+        "custom": "custom",
         "darwin": "darwin",
         "disko": "disko",
         "home-manager": "home-manager",

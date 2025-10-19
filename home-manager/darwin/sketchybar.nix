@@ -1,27 +1,23 @@
 { pkgs, lib, ... }:
 {
-  home.packages = with pkgs; [
-    wttrbar
-    sketchyhelper
-  ];
   xdg.configFile = {
     "sketchybar" = {
       source = lib.cleanSourceWith {
         src = pkgs.fetchFromGitHub {
           owner = "EphraimSiegfried";
           repo = "sketchybar";
-          rev = "7f19d64";
-          sha256 = "sha256-yqBJcVqBtmR7tOzyvwsHFhC2H3UbjNdwo44w8THfgFc=";
+          rev = "9861921";
+          sha256 = "sha256-nmLi6HBp1K8d4UQ4QW0sDGxbGB1G0oZYa6BHEE9ZGLc=";
         };
       };
       recursive = true;
     };
 
-    "sketchybar/sketchybarrc" = {
+    "sketchybar/sbar_init" = {
       executable = true;
       text = # Lua
         ''
-          #!/usr/bin/env lua
+          #!/usr/bin/bash
 
           -- Add the sketchybar module to the package cpath (the module could be
           -- installed into the default search path then this would not be needed)
@@ -36,5 +32,6 @@
           sbar.event_loop()
         '';
     };
+
   };
 }

@@ -2,5 +2,4 @@
 # You can build them using 'nix build .#example'
 pkgs: {
   kidex = pkgs.callPackage ./kidex { };
-  sketchyhelper = pkgs.callPackage ./sketchyhelper { };
 }
