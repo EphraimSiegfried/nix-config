@@ -2,9 +2,11 @@
 {
   programs.git = {
     enable = true;
-    userEmail = "ephraim.siegfried@hotmail.com";
-    userName = "Ephraim Siegfried";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Ephraim Siegfried";
+        email = "ephraim.siegfried@hotmail.com";
+      };
       merge = {
         tool = "nvimdiff2";
         guitool = "meld";
