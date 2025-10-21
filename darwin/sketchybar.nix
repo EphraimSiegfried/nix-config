@@ -10,10 +10,10 @@
       inputs.custom.packages.aarch64-darwin.sketchybar-system-stats
     ];
   };
-  # launchd.user.agents.sketchybar.serviceConfig = {
-  #   StandardOutPath = "/tmp/sketchybar-logs/sketchybar.stdout.log";
-  #   StandardErrorPath = "/tmp/sketchybar-logs/sketchybar.stderr.log";
-  # };
+  launchd.user.agents.sketchybar.serviceConfig = {
+    StandardOutPath = "/tmp/sketchybar-logs/sketchybar.stdout.log";
+    StandardErrorPath = "/tmp/sketchybar-logs/sketchybar.stderr.log";
+  };
   environment.systemPackages = [
     inputs.custom.packages.aarch64-darwin.sketchybar-system-stats
   ];

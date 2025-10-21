@@ -6,14 +6,14 @@
         src = pkgs.fetchFromGitHub {
           owner = "EphraimSiegfried";
           repo = "sketchybar";
-          rev = "9861921";
-          sha256 = "sha256-nmLi6HBp1K8d4UQ4QW0sDGxbGB1G0oZYa6BHEE9ZGLc=";
+          rev = "6a93f67";
+          sha256 = "sha256-zwiwIx/1DsED9/4tBxgp06B6VTEt5I63br/HUGsRUIw=";
         };
       };
       recursive = true;
     };
 
-    "sketchybar/sbar_init" = {
+    "sketchybar/sketchybarrc" = {
       executable = true;
       text = # Lua
         ''
