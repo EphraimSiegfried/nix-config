@@ -22,7 +22,6 @@
 
     casks = [
       "sf-symbols" # used in sketchybar
-      "discord"
       "firefox"
       "qbittorrent"
       "vlc"
@@ -30,20 +29,14 @@
       "balenaetcher"
       "nextcloud"
       "drawio"
-      "visual-studio-code"
       "pycharm"
       "zoom"
       "datagrip"
-      "telegram"
-      "raycast"
       "sioyek"
       "docker"
-      "kathara"
-      "microsoft-excel"
       "utm"
       "intellij-idea"
       "wireshark"
-      "google-chrome"
       "webstorm"
       "protonvpn"
       "skim"
