@@ -5,7 +5,7 @@
     settings = {
       user = {
         name = "Ephraim Siegfried";
-        email = "ephraim.siegfried@hotmail.com";
+        email = "ephraim.siegfried@proton.me";
       };
       merge = {
         tool = "nvimdiff2";
