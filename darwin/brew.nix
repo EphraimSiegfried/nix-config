@@ -23,8 +23,6 @@
     casks = [
       "sf-symbols" # used in sketchybar
       "discord"
-      "whatsapp"
-      "spotify"
       "firefox"
       "qbittorrent"
       "vlc"
@@ -53,6 +51,7 @@
       "rustrover"
       "obsidian"
       "brave-browser"
+      "proton-mail"
     ];
     # masApps = {
     #   "Wireguard" = 1451685025;
