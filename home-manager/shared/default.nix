@@ -16,6 +16,7 @@
     ./packages.nix
     ./latex.nix
     ./nh.nix
+    ./zed.nix
   ];
 
 }
