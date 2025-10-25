@@ -36,8 +36,8 @@
     xkb.variant = "";
     videoDrivers = [ "amdgpu" ];
   };
-  services.displayManager.ly.enable = true;
   hardware.graphics.enable = true;
+  services.displayManager.sddm.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
