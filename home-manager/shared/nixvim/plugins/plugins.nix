@@ -84,6 +84,23 @@
         indent.enable = true;
       };
     };
+    treesitter-textobjects = {
+      enable = true;
+      autoLoad = true;
+      settings = {
+        enable = true;
+        keymaps = {
+          ab = "@block.outer";
+          ac = "@call.outer";
+          ib = "@block.inner";
+          ic = "@call.inner";
+          af = "@function.outer";
+          "if" = "@function.inner";
+        };
+        lookahead = true;
+      };
+
+    };
 
     neo-tree = {
       enable = true;
