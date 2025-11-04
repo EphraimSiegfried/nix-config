@@ -5,6 +5,7 @@
     jq
     drawio
     brave
+    protonvpn-gui
   ];
 
   imports = [
