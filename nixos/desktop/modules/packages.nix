@@ -8,8 +8,5 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
-    discord
-    webcord
-    git
   ];
 }
