@@ -8,5 +8,6 @@
     devenv
     comma
     nix-index
+    tree
   ];
 }
