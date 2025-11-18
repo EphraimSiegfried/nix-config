@@ -21,7 +21,7 @@
         menu = "anyrun";
       in
       [
-        "ALTSHIFT, K, exec, ${terminal}"
+        "ALTSHIFT, T, exec, ${terminal}"
         "ALTSHIFT, B, exec, ${browser}"
         "ALT, space, exec, ${menu}"
 
@@ -29,6 +29,11 @@
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
         "$mod, J, movefocus, d"
+
+        "ALTSHIFT, L, resizeactive, 30 0"
+        "ALTSHIFT, H, resizeactive, -30 0"
+        "ALTSHIFT SHIFT, J, resizeactive, 0 30"
+        "ALTSHIFT SHIFT, K, resizeactive, 0 -30"
 
         "$mod SHIFT, H, swapwindow, l"
         "$mod SHIFT, L, swapwindow, r"
