@@ -32,26 +32,25 @@
       settings.lsp.auto_attach = true;
     };
 
-    lualine = {
-      enable = true;
-      settings = {
-        options = {
-          disabled_filetypes = {
-            __unkeyed-1 = "alpha";
-            __unkeyed-2 = "neo-tree";
-          };
-          globalstatus = true;
-        };
-        winbar = {
-          lualine_c = [
-            {
-              __unkeyed = "navic";
-            }
-          ];
-        };
-      };
-
-    };
+    # lualine = {
+    #   enable = true;
+    #   settings = {
+    #     options = {
+    #       disabled_filetypes = {
+    #         __unkeyed-1 = "alpha";
+    #         __unkeyed-2 = "neo-tree";
+    #       };
+    #       globalstatus = true;
+    #     };
+    #     winbar = {
+    #       lualine_c = [
+    #         {
+    #           __unkeyed = "navic";
+    #         }
+    #       ];
+    #     };
+    #   };
+    # };
 
     nvim-autopairs = {
       enable = true;

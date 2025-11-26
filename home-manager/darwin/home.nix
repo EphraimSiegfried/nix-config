@@ -23,7 +23,7 @@
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.stable-packages
+      outputs.overlays.unstable-packages
     ];
     config = {
       allowUnfree = true;
