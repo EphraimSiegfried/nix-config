@@ -16,7 +16,7 @@
           syntax_enabled = "1";
           complete_enabled = "1";
           tex_conceal = "abdmg";
-          view_method = "skim";
+          view_method = if pkgs.system == "aarch64-darwin" then "skim" else "zathura";
         };
       };
       treesitter.settings.highlight.disable = [ "latex" ];
