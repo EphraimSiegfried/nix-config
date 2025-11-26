@@ -31,6 +31,7 @@
       };
     };
     lsp-signature.enable = true;
+    csvview.enable = true;
 
     cmp = {
       enable = true;
