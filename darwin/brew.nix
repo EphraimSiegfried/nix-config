@@ -27,15 +27,14 @@
       "vlc"
       "virtualbox"
       "balenaetcher"
-      "nextcloud"
       "drawio"
       "pycharm"
       "zoom"
       "datagrip"
       "sioyek"
       "docker"
-      "utm"
       "intellij-idea"
+      "utm"
       "wireshark"
       "webstorm"
       "protonvpn"
@@ -45,6 +44,9 @@
       "obsidian"
       "brave-browser"
       "proton-mail"
+      "threema"
+      "telegram"
+      "onlyoffice"
     ];
     # masApps = {
     #   "Wireguard" = 1451685025;
