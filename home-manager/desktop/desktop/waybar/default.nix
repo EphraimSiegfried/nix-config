@@ -1,7 +1,12 @@
 { pkgs, ... }:
 {
+  fonts.fontconfig.enable = true;
   home.packages = [
-    pkgs.monaspace
+    pkgs.nerd-fonts.monaspace
+    pkgs.nerd-fonts.fira-code
+    pkgs.fira-code
+    pkgs.fira-code-symbols
+
   ];
   programs.waybar = {
     enable = true;
@@ -173,6 +178,7 @@
             "class<firefox.*> title<.*github.*>" = "";
             "class<firefox.*> title<.*twitch|youtube|plex|tntdrama|bally sports.*>" = "";
             "class<firefox.*>" = "";
+            "class<brave.*>" = "󰖟";
             "class<foot>" = "";
             "class<fr.handbrake.ghb" = "󱁆";
             "class<heroic>" = "󱢾";
