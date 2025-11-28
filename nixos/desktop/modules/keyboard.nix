@@ -1,6 +1,12 @@
-# Remap Caps Lock to esc
 # https://github.com/jtroo/kanata/blob/main/docs/config.adoc#deflayermap
 {
+
+  services.xserver = {
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
+
+  # Remap Caps Lock to esc
   services.kanata = {
     enable = true;
     keyboards = {
