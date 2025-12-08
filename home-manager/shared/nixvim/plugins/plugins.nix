@@ -22,6 +22,8 @@
 
     trouble.enable = true;
 
+    illuminate.enable = true;
+
     inc-rename = {
       enable = true;
       # inputBufferType = "dressing";
