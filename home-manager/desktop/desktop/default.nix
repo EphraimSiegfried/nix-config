@@ -20,5 +20,6 @@
     # ./wofi.nix
     ./hyprpaper.nix
     ./anyrun
+    ./dunst.nix
   ];
 }
