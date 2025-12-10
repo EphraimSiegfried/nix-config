@@ -7,6 +7,7 @@ in
   home.packages = with pkgs; [
     zoxide
     tldr
+    nix-your-shell
   ];
   programs.eza = {
     enable = true;
@@ -42,6 +43,7 @@ in
     };
 
     initContent = ''
+      ${pkgs.nix-your-shell}/bin/nix-your-shell zsh | source /dev/stdin
       	VI_MODE_SET_CURSOR=true
     ''
     + util_functions;
