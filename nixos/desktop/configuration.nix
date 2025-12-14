@@ -12,6 +12,7 @@
     ./modules/wireshark.nix
     ./modules/hyprland.nix
     ./modules/audio.nix
+    ./modules/docker.nix
     ./hardware-configuration.nix
   ];
 
