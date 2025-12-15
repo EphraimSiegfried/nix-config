@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./colorschemes.nix
     ./lsp.nix
     ./conform.nix
     ./extra/alpha.nix
