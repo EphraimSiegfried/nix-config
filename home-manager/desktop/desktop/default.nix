@@ -21,5 +21,6 @@
     ./hyprpaper.nix
     ./anyrun
     ./dunst.nix
+    ./vicinae.nix
   ];
 }

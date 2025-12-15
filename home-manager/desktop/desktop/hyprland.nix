@@ -18,7 +18,7 @@
       let
         terminal = "kitty";
         browser = "brave";
-        menu = "anyrun";
+        menu = "vicinae toggle";
       in
       [
         "ALTSHIFT, T, exec, ${terminal}"

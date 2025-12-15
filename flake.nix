@@ -26,6 +26,10 @@
       url = "github:EphraimSiegfried/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
+    };
   };
 
   outputs =
