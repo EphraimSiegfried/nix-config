@@ -37,16 +37,19 @@
       "utm"
       "wireshark"
       "webstorm"
-      "protonvpn"
       "skim"
       "jellyfin-media-player"
       "rustrover"
       "obsidian"
       "brave-browser"
-      "proton-mail"
       "threema"
       "telegram"
       "onlyoffice"
+      "spotify"
+      "protonvpn"
+      "proton-mail"
+      "proton-drive"
+      # "eddie"
     ];
     # masApps = {
     #   "Wireguard" = 1451685025;
