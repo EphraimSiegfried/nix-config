@@ -16,8 +16,8 @@
     };
 
     darwin = {
-      url = "github:LnL7/nix-darwin";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     disko = {
@@ -32,6 +32,7 @@
 
     vicinae = {
       url = "github:vicinaehq/vicinae";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
