@@ -6,6 +6,7 @@
     drawio
     brave
     protonvpn-gui
+    spotify
   ];
 
 }
