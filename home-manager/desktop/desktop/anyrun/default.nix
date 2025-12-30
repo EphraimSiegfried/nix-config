@@ -6,7 +6,9 @@
   ];
   programs.anyrun = {
     enable = true;
+    # package = pkgs.unstable.anyrun;
     config = {
+      x.fraction = 0.5;
       y.fraction = 0.3;
       width.fraction = 0.25;
       hideIcons = false;
@@ -18,7 +20,8 @@
       maxEntries = 10;
 
       plugins = [
-        "${pkgs.anyrun}/lib/libapplications.so"
+        "${pkgs.unstable.anyrun}/lib/libapplications.so"
+        "${pkgs.anyrun}/lib/libsymbols.so"
         # "${pkgs.anyrun}/lib/libkidex.so"
       ];
 
@@ -37,6 +40,6 @@
     #     )
     # '';
     # copied from https://github.com/fufexan/dotfiles/blob/main/home/programs/anyrun/style-dark.css
-    extraCss = builtins.readFile ./style.css;
+    # extraCss = builtins.readFile ./style.css;
   };
 }
