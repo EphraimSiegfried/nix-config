@@ -22,5 +22,6 @@
     ./anyrun
     ./dunst.nix
     ./vicinae.nix
+    ./cursor.nix
   ];
 }
