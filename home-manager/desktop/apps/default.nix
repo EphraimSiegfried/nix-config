@@ -7,6 +7,8 @@
     brave
     protonvpn-gui
     spotify
+    pkgs.unstable.threema-desktop
+    libreoffice-qt
   ];
 
 }
