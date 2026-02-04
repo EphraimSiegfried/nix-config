@@ -30,107 +30,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vicinae = {
-      url = "github:vicinaehq/vicinae";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    vicinae.url = "github:vicinaehq/vicinae";
+    import-tree.url = "github:vic/import-tree";
     sops-nix.url = "github:Mic92/sops-nix";
     nur.url = "github:nix-community/NUR";
   };
-
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      darwin,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      systems = [
-        "aarch64-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    rec {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
-      overlays = import ./overlays { inherit inputs; };
-
-      nixosConfigurations = {
-        # Desktop
-        blinkybill = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos/desktop/configuration.nix
-          ];
-        };
-
-        # Server
-        zeus = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          system = "x86_64-linux";
-          modules = [
-            inputs.disko.nixosModules.disko
-            # inputs.nixarr.nixosModules.default
-            ./nixos/server/configuration.nix
-          ];
-        };
-      };
-      darwinConfigurations = {
-        thymian = darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs outputs; };
-          system = "aarch64-darwin";
-          modules = [
-            ./darwin/configuration.nix
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        "siegi@blinkybill" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/desktop/home.nix
-          ];
-        };
-
-        "siegi@zeus" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/server/home.nix
-          ];
-        };
-
-        "siegi@ares" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/server/home.nix
-          ];
-        };
-
-        "siegi@thymian" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/darwin/home.nix
-          ];
-        };
-
-        "siegi" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/server/home.nix
-          ];
-        };
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
