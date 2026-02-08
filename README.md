@@ -23,7 +23,7 @@ it is easier to understand.
 You can test my main NixOS configuration using this single command:
 
 ```bash
-nix run github:EphraimSiegfried#vm
+nix run github:EphraimSiegfried/nix-config#vm
 ```
 
 The password is `changeme` and keybindings can be activated by pressing:
