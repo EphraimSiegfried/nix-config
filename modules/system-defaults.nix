@@ -1,5 +1,6 @@
 # Darwin Settings I don't know where to put yet
 # TODO: refactor
+{ config, ... }:
 {
   flake.modules.darwin.system_defaults = {
     system = {
@@ -9,8 +10,7 @@
           "com.apple.sound.beep.volume" = 0.0;
         };
 
-        # TODO: Use a variable for home location
-        screencapture.location = "Users/siegi/Pictures/screenshots";
+        screencapture.location = "Users/${config.primaryUser.username}/Pictures/screenshots";
       };
 
       activationScripts.activateSettings.text = ''
