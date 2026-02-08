@@ -4,6 +4,7 @@
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
       _FXShowPosixPathInTitle = true;
+      NSGlobalDomain.AppleShowAllExtensions = true;
     };
   };
 }

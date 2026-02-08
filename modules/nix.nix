@@ -1,3 +1,4 @@
+# Defines default settings for the nix package manager
 { config, ... }:
 let
   nixSettings = {

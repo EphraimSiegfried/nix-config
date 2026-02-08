@@ -6,7 +6,6 @@
       enable = true;
       settings = {
         user = {
-          # TODO: put this in variables
           name = "${config.primaryUser.firstName} ${config.primaryUser.lastName}";
           email = "${config.primaryUser.email}";
         };

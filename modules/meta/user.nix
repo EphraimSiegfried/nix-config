@@ -1,3 +1,6 @@
+# This file defines variables I use all over my config
+# I never define these variables indirectly by setting default values
+
 { lib, ... }:
 
 let
@@ -24,7 +27,6 @@ let
         publicSSHKeys = lib.mkOption {
           type = lib.types.listOf lib.types.str;
           default = [ ];
-          description = "A list of public SSH keys for the user.";
         };
         timeZone = lib.mkOption {
           type = lib.types.str;

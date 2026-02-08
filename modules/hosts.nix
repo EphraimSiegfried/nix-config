@@ -11,6 +11,7 @@ let
   homeDefaults.home.stateVersion = "23.05";
 in
 {
+  # Supported systems
   systems = [
     "x86_64-linux"
     "aarch64-darwin"
@@ -20,7 +21,7 @@ in
   flake.darwinConfigurations.thymian = inputs.darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     modules = with inputs.self.modules.darwin; [
-      # the list of features I want to have on my mac
+      # the list of features (i.e. modules) I want to have on my mac
       darwinDefaults
       system_defaults
       nix_settings
@@ -32,6 +33,7 @@ in
   };
 
   # Home configuration for MacOS
+  # TODO: Use home-manager as a darwin module
   flake.homeConfigurations."${config.primaryUser.username}@thymian" =
     inputs.home-manager.lib.homeManagerConfiguration
       {
@@ -76,6 +78,8 @@ in
           inputs.home-manager.nixosModules.default
         ];
         networking.hostName = "blinkybill";
+        # Here home-manager is used as a nixos module
+        # This has the advantage I only need nixos-rebuild to change both system and home settings
         home-manager.users.${config.primaryUser.username} = {
           imports = with inputs.self.modules.homeManager; [
             homeDefaults
@@ -91,6 +95,8 @@ in
     ];
   };
 
+  # Here I use home manager as a standalone module
+  # This can be used for systems without nixos installed
   flake.homeConfigurations."${config.primaryUser.username}" =
     inputs.home-manager.lib.homeManagerConfiguration
       {

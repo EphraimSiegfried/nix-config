@@ -1,3 +1,5 @@
+# Darwin Settings I don't know where to put yet
+# TODO: refactor
 {
   flake.modules.darwin.system_defaults = {
     system = {
@@ -5,7 +7,6 @@
         NSGlobalDomain = {
           "com.apple.sound.beep.feedback" = 0;
           "com.apple.sound.beep.volume" = 0.0;
-          AppleShowAllExtensions = true;
         };
 
         # TODO: Use a variable for home location
