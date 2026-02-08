@@ -6,7 +6,7 @@ things such as
 - [A NixOS and MacOS host (the root of the config)](./modules/hosts.nix)
 - [Nvim (Nixvim)](./modules/cli-tools/nvim)
 - [Zsh](./modules/cli-tools/zsh)
-- [Hyprland](./modules/desktop-stack/hyprland.nix)
+- [Hyprland](./modules/desktop-stack/window-manager.nix)
 - [Sketchybar](./modules/desktop-stack/status-bars/sketchybar.nix)
 - [Kitty](./modules/gui-apps/kitty.nix)
 - [Secrets](./modules/secrets.nix)
