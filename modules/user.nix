@@ -36,7 +36,7 @@
       home.homeDirectory = "${homeDir}/${config.primaryUser.username}";
     };
 
-  flake.module.darwin.user = {
+  flake.modules.darwin.user = {
     system.primaryUser = config.primaryUser.username;
   };
 

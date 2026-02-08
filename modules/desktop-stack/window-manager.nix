@@ -54,21 +54,23 @@
     {
       services.aerospace = {
         enable = true;
-        exec-on-workspace-change = [
-          "/bin/bash"
-          "-c"
-          "${sketchybar} --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
-        ];
-        gaps = {
-          outer = {
-            left = 10;
-            bottom = 10;
-            top = 20;
-            right = 10;
-          };
-          inner = {
-            horizontal = 10;
-            vertical = 10;
+        settings = {
+          exec-on-workspace-change = [
+            "/bin/bash"
+            "-c"
+            "${sketchybar} --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
+          ];
+          gaps = {
+            outer = {
+              left = 10;
+              bottom = 10;
+              top = 20;
+              right = 10;
+            };
+            inner = {
+              horizontal = 10;
+              vertical = 10;
+            };
           };
         };
       };

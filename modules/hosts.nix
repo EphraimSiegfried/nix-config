@@ -23,6 +23,7 @@ in
     modules = with inputs.self.modules.darwin; [
       # the list of features (i.e. modules) I want to have on my mac
       darwinDefaults
+      user
       system_defaults
       nix_settings
       cli_tools
@@ -40,12 +41,13 @@ in
         pkgs = inputs.nixpkgs.legacyPackages.aarch64-darwin;
         modules = with inputs.self.modules.homeManager; [
           homeDefaults
-          status_bar
+          user
+          nixpkgs_settings
+          sketchybar
           fonts
           cli_tools
           gui_apps
           secrets
-          zsh
         ];
 
       };

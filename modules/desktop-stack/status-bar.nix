@@ -12,9 +12,6 @@
     imports = [
       inputs.self.modules.darwin.sketchybar
     ];
-    home-manager.sharedModules = [
-      inputs.self.modules.homeManager.sketchybar
-    ];
   };
 
 }
