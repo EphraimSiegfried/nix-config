@@ -6,6 +6,9 @@
 
       homebrew.brews = [ "ifstat" ];
       homebrew.casks = [ "sf-symbols" ];
+      # home-manager.sharedModules = [
+      #   inputs.flake.modules.homeManager.sketchybar
+      # ];
       services.sketchybar = {
         enable = true;
         extraPackages = with pkgs; [

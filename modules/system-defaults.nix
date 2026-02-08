@@ -1,20 +1,7 @@
-{ config, ... }:
 {
   flake.modules.darwin.system_defaults = {
     system = {
-      primaryUser = config.primaryUser;
       defaults = {
-        finder = {
-          AppleShowAllExtensions = true;
-          AppleShowAllFiles = true;
-          _FXShowPosixPathInTitle = true;
-        };
-
-        loginwindow = {
-          GuestEnabled = false;
-          SHOWFULLNAME = false;
-        };
-
         NSGlobalDomain = {
           "com.apple.sound.beep.feedback" = 0;
           "com.apple.sound.beep.volume" = 0.0;
@@ -23,11 +10,6 @@
 
         # TODO: Use a variable for home location
         screencapture.location = "Users/siegi/Pictures/screenshots";
-      };
-
-      keyboard = {
-        enableKeyMapping = true;
-        remapCapsLockToEscape = true;
       };
 
       activationScripts.activateSettings.text = ''

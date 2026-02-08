@@ -22,7 +22,9 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
+        man-pages
         home-manager
+        curl
         yazi
         zoxide
         tldr
@@ -44,6 +46,7 @@
         nh
         git
         nixvim
+        zsh
       ];
     };
 }

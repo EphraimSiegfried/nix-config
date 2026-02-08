@@ -1,3 +1,4 @@
+{ config, ... }:
 {
 
   flake.modules.homeManager.git = {
@@ -6,8 +7,8 @@
       settings = {
         user = {
           # TODO: put this in variables
-          name = "Ephraim Siegfried";
-          email = "ephraim.siegfried@proton.me";
+          name = "${config.primaryUser.firstName} ${config.primaryUser.lastName}";
+          email = "${config.primaryUser.email}";
         };
         merge = {
           tool = "nvimdiff2";

@@ -1,4 +1,68 @@
+# TODO: Refactor
 {
+  flake.modules.homeManager.hyprland = {
+
+    wayland.windowManager.hyprland.settings = {
+
+      "$mod" = "SUPER";
+      bind =
+        let
+          terminal = "kitty";
+          browser = "brave";
+          menu = "vicinae toggle";
+        in
+        [
+          "ALTSHIFT, T, exec, ${terminal}"
+          "ALTSHIFT, B, exec, ${browser}"
+          "ALT, space, exec, ${menu}"
+
+          "$mod, H, movefocus, l"
+          "$mod, L, movefocus, r"
+          "$mod, K, movefocus, u"
+          "$mod, J, movefocus, d"
+
+          "ALTSHIFT, L, resizeactive, 30 0"
+          "ALTSHIFT, H, resizeactive, -30 0"
+          "ALTSHIFT SHIFT, J, resizeactive, 0 30"
+          "ALTSHIFT SHIFT, K, resizeactive, 0 -30"
+
+          "$mod SHIFT, H, swapwindow, l"
+          "$mod SHIFT, L, swapwindow, r"
+          "$mod SHIFT, K, swapwindow, u"
+          "$mod SHIFT, J, swapwindow, d"
+
+          "$mod, S, exec, grim - | wl-copy"
+          "$mod SHIFT, S, exec, grim -g \"$(slurp)\" | wl-copy"
+
+          "$mod, TAB, focuscurrentorlast"
+
+          "ALT, Q, killactive"
+          "ALT, W, killactive"
+          "$mod, F, fullscreen"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          builtins.concatLists (
+            builtins.genList (
+              x:
+              let
+                ws =
+                  let
+                    c = (x + 1) / 10;
+                  in
+                  builtins.toString (x + 1 - (c * 10));
+              in
+              [
+                "$mod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              ]
+            ) 10
+          )
+        );
+    };
+  };
+
   flake.modules.darwin.aerospace =
     { lib, pkgs, ... }:
     let
@@ -66,25 +130,6 @@
               "close-all-windows-but-current"
               "mode main"
             ];
-          };
-          # exec-on-workspace-change = [ "/bin/bash" "-c" "/run/current-system/sw/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE" ];
-          exec-on-workspace-change = [
-            "/bin/bash"
-            "-c"
-            "${sketchybar} --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
-          ];
-          gaps = {
-            outer = {
-              left = 10;
-              bottom = 10;
-              top = 20;
-              right = 10;
-            };
-            inner = {
-              horizontal = 10;
-              vertical = 10;
-            };
-
           };
         };
       };

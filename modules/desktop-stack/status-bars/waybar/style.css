@@ -1,0 +1,100 @@
+@define-color black #181926;
+@define-color white #cad3f5;
+@define-color red #ed8796;
+@define-color green #a6da95;
+@define-color blue #8aadf4;
+@define-color yellow #eed49f;
+@define-color orange #f5a97f;
+@define-color magenta #c6a0f6;
+@define-color grey #939ab7;
+@define-color transparent rgba(0, 0, 0, 0);
+
+@define-color bar_color rgba(36, 39, 58, 0.8);
+@define-color icon_color white;
+@define-color label_color white;
+@define-color background_1 #3c3e4f;
+@define-color background_2 #494d64;
+
+@define-color popup_background_color black;
+@define-color popup_border_color #cad3f5;
+
+@define-color shadow_color black;
+
+* {
+	font-family: "Fira Code", monospace;
+	font-size: 20px;
+	border-radius: 0.3em;
+}
+
+window#waybar {
+	border: none;
+	background: @transparent;
+	color: @label_color;
+	padding: 0 10px;
+}
+
+
+#utils,
+#stats,
+#workspaces,
+#clock {
+	padding: 0 10px;
+	background-color: @background_1;
+	/*border: 1px solid @popup_border_color;*/
+}
+
+#cpu,
+#memory,
+#temperature,
+#network,
+#disk,
+#pulseaudio,
+#bluetooth,
+#clock {
+	background-color: @background_1;
+	margin: 0 0.5em;
+}
+
+#workspaces {
+	font-weight: bold;
+}
+
+#workspaces button {
+	padding: 0 0.8em;
+	background-color: @background_2;
+	color: @label_color;
+	margin: 0.25em;
+}
+
+#workspaces button.active {
+	color: @green;
+}
+
+#cpu {
+	color: @red;
+}
+
+#memory {
+	color: @yellow;
+}
+
+#temperature {
+	color: @magenta;
+}
+
+#network {
+	color: @orange;
+}
+
+#disk {
+	color: @blue;
+}
+
+#pulseaudio {
+	color: @blue
+}
+
+#custom-menu {
+	color: @blue;
+	margin: 0 0.5em;
+}

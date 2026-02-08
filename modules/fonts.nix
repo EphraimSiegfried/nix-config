@@ -10,4 +10,8 @@
         monaspace
       ];
     };
+
+  flake.modules.nixos.fonts = {
+    fonts.enableDefaultPackages = true;
+  };
 }
