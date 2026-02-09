@@ -42,7 +42,7 @@
         "pycharm"
         "zoom"
         "datagrip"
-        "docker"
+        "docker-desktop"
         "intellij-idea"
         "utm"
         "webstorm"
