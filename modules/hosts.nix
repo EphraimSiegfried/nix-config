@@ -97,6 +97,49 @@ in
     ];
   };
 
+  flake.nixosConfigurations.oz = inputs.nixpkgs.lib.nixosSystem {
+    modules = with inputs.self.modules.nixos; [
+      nixosDefaults
+
+      nix_settings
+      user
+
+      kernel
+      systemd_boot
+
+      network
+      bluetooth
+      audio
+      keyboard
+
+      hyprland
+      login
+
+      fonts
+      # TODO: handle hardware configuration in a more elegant way
+      {
+        imports = [
+          ./platform/_generated/hardware-configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+        networking.hostName = "oz";
+        # Here home-manager is used as a nixos module
+        # This has the advantage I only need nixos-rebuild to change both system and home settings
+        home-manager.users.${config.primaryUser.username} = {
+          imports = with inputs.self.modules.homeManager; [
+            homeDefaults
+            user
+            nixpkgs_settings
+            fonts
+            cli_tools
+            gui_apps
+            launcher
+          ];
+        };
+      }
+    ];
+  };
+
   # Here I use home manager as a standalone module
   # This can be used for systems without nixos installed
   flake.homeConfigurations."${config.primaryUser.username}" =
