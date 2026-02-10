@@ -133,7 +133,6 @@ in
             fonts
             cli_tools
             gui_apps
-            launcher
           ];
         };
       }
