@@ -119,7 +119,7 @@ in
       # TODO: handle hardware configuration in a more elegant way
       {
         imports = [
-          ./platform/_generated/hardware-configuration.nix
+          ./platform/_generated/oz.nix
           inputs.home-manager.nixosModules.default
         ];
         networking.hostName = "oz";
