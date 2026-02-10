@@ -110,7 +110,7 @@ in
       network
       bluetooth
       audio
-      keyboard
+      keyboard-macbook
 
       hyprland
       login
