@@ -111,6 +111,7 @@ in
       bluetooth
       audio
       keyboard-macbook
+      graphics
 
       hyprland
       login
@@ -133,6 +134,7 @@ in
             fonts
             cli_tools
             gui_apps
+            launcher
           ];
         };
       }
