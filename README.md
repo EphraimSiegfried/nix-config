@@ -18,6 +18,8 @@ for the NixOS, Home-Manager and Nixvim configuration. Although my repository
 doesn't contain as many abstractions as other dendritic configurations, I hope
 it is easier to understand.
 
+![NixOS Screenshot](./misc/oz-screenshot.png)
+
 ## Try it out
 
 You can test my main NixOS configuration using this single command:
