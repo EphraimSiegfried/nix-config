@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   flake.modules.nixos.hyprland = {
+    services.xserver.enable = true;
     programs.hyprland = {
       enable = true;
       withUWSM = true;
