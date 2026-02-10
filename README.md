@@ -4,7 +4,7 @@ This repository contains my Nix configuration for a singe user. It configures
 things such as
 
 - [A NixOS and MacOS host (the root of the config)](./modules/hosts.nix)
-- [Nvim (Nixvim)](./modules/cli-tools/nvim)
+- [Neovim (Nixvim)](./modules/cli-tools/nvim)
 - [Zsh](./modules/cli-tools/zsh)
 - [Hyprland](./modules/desktop-stack/window-manager.nix)
 - [Sketchybar](./modules/desktop-stack/status-bars/sketchybar.nix)
@@ -23,7 +23,7 @@ it is easier to understand.
 You can test my main NixOS configuration using this single command:
 
 ```bash
-nix run github:EphraimSiegfried#vm
+nix run github:EphraimSiegfried/nix-config#vm
 ```
 
 The password is `changeme` and keybindings can be activated by pressing:
