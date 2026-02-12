@@ -102,6 +102,7 @@
               format-ethernet = "󰈀";
               format-disconnected = "󰖪";
               tooltip-format = "{ifname} ({essid}): {ipaddr}";
+              on-click = "kitty -- nmtui";
             };
 
             pulseaudio = {
