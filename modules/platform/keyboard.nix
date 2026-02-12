@@ -19,6 +19,24 @@
     };
   };
 
+  # additionally swaps alt and super keys
+  flake.modules.nixos.keyboard-macbook = {
+    services.kanata = {
+      enable = true;
+      keyboards = {
+        "macbook".config = ''
+          (defsrc
+            caps lmet lalt ralt rmet
+          )
+
+          (deflayer base
+            esc  lalt lmet rmet ralt
+          )
+        '';
+      };
+    };
+  };
+
   flake.modules.darwin.keyboard = {
     system.defaults.keyboard = {
       enableKeyMapping = true;
