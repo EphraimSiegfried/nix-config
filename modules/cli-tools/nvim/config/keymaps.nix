@@ -8,6 +8,14 @@
           key = "<leader>d";
         }
         {
+          action = "<cmd>lua vim.lsp.buf.definition()<CR>";
+          key = "gd";
+        }
+        {
+          action = "<cmd>lua vim.lsp.buf.declaration()<CR>";
+          key = "gD";
+        }
+        {
           action = "<cmd>bprevious<CR>";
           key = "H";
         }

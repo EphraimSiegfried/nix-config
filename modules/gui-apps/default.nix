@@ -3,19 +3,37 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.gui_apps =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
+    let
+      wrapWithFlags =
+        pkg: flags:
+        pkgs.symlinkJoin {
+          name = "${pkg.pname}-wrapped";
+          paths = [ pkg ];
+          nativeBuildInputs = [ pkgs.makeWrapper ];
+          postBuild = ''
+            	      wrapProgram $out/bin/${pkg.pname} \
+            		--add-flags "${lib.concatStringsSep " " flags}"
+            	    '';
+        };
+
+      gpuFlags = [
+        "--use-gl=desktop"
+        "--enable-features=VaapiVideoDecoder"
+      ];
+    in
     {
       home.packages =
         with pkgs;
         [
           zathura
           meld
-          drawio
-          brave
-          spotify
+          # wrap electron/chromium apps
+          (wrapWithFlags spotify gpuFlags)
+          (wrapWithFlags obsidian gpuFlags)
+          (wrapWithFlags discord gpuFlags)
+          (brave.override { commandLineArgs = gpuFlags; })
           wireshark
-          obsidian
-          qbittorrent
         ]
         ++ lib.optionals stdenv.isLinux [
           vlc
@@ -43,7 +61,7 @@
         "pycharm"
         "zoom"
         "datagrip"
-        "docker"
+        "docker-desktop"
         "intellij-idea"
         "utm"
         "webstorm"
