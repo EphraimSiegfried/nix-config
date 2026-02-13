@@ -20,6 +20,7 @@
         ++ lib.optionals stdenv.isLinux [
           vlc
           pavucontrol
+          libreoffice
         ];
 
       imports = with inputs.self.modules.homeManager; [
