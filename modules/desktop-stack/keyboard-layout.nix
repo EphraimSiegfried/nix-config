@@ -4,7 +4,7 @@
       input = {
         kb_layout = "us,ch";
         kb_variant = ",de";
-        kb_options = "grp:rctrl_toggle";
+        kb_options = "grp:win_space_toggle";
       };
     };
   };
