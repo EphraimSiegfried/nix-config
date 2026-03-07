@@ -39,6 +39,7 @@
           vlc
           pavucontrol
           libreoffice
+          eddie
         ];
 
       imports = with inputs.self.modules.homeManager; [
