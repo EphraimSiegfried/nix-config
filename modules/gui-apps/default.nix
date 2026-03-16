@@ -11,13 +11,13 @@
           zathura
           meld
           drawio
-          brave
-          spotify
           wireshark
           obsidian
           qbittorrent
         ]
         ++ lib.optionals stdenv.isLinux [
+          brave
+          spotify
           vlc
           pavucontrol
         ];
@@ -53,6 +53,9 @@
         "protonvpn"
         "proton-mail"
         "proton-drive"
+        "spotify"
+        "brave-browser"
+        "slack"
       ];
     };
   };
