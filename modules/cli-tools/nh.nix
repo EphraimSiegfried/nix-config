@@ -3,7 +3,7 @@
   flake.modules.homeManager.nh = {
     programs.nh = {
       enable = true;
-      flake = "${self}";
+      flake = "~/nix-config";
     };
   };
 }
