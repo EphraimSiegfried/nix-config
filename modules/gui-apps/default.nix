@@ -30,9 +30,9 @@
           meld
           wireshark
           obsidian
-          qbittorrent
         ]
         ++ lib.optionals stdenv.isLinux [
+          qbittorrent
           vlc
           pavucontrol
           libreoffice
@@ -45,7 +45,7 @@
         ];
 
       imports = with inputs.self.modules.homeManager; [
-        zed
+        # zed
         kitty
       ];
     };
