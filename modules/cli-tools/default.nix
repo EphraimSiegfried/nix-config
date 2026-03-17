@@ -39,6 +39,7 @@
         lazygit
         gh
         direnv
+        openconnect
       ];
       imports = with inputs.self.modules.homeManager; [
         ssh
