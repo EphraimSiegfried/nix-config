@@ -6,6 +6,7 @@
     let
       util_functions = builtins.readFile ./util.sh;
       system = pkgs.stdenv.hostPlatform.system;
+      flake_location = "~/nix-config";
     in
     {
       programs.fzf = {
@@ -22,8 +23,8 @@
             open_command = if system == "aarch64-darwin" then "open" else "xdg-open";
           in
           {
-            uhome = "home-manager switch --flake ${self}#$(whoami)@$(hostname)";
-            usys = "${system_command} switch --flake ${self}#$(hostname)";
+            uhome = "home-manager switch --flake ${flake_location}#$(whoami)@$(hostname)";
+            usys = "${system_command} switch --flake ${flake_location}#$(hostname)";
             lg = "lazygit";
             open = "${open_command}";
           };
