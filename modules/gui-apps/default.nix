@@ -29,9 +29,9 @@
           zathura
           meld
           wireshark
-          obsidian
         ]
         ++ lib.optionals stdenv.isLinux [
+          obsidian
           qbittorrent
           vlc
           pavucontrol
@@ -45,7 +45,7 @@
         ];
 
       imports = with inputs.self.modules.homeManager; [
-        # zed
+        zed
         kitty
       ];
     };
@@ -77,7 +77,11 @@
         "proton-drive"
         "spotify"
         "brave-browser"
+        "firefox"
+        "obsidian"
+        # work related stuff
         "slack"
+        "microsoft-powerpoint"
       ];
     };
   };
