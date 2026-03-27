@@ -31,7 +31,6 @@
           wireshark
         ]
         ++ lib.optionals stdenv.isLinux [
-          obsidian
           qbittorrent
           vlc
           pavucontrol
