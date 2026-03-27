@@ -113,6 +113,8 @@
               alt-shift-minus = "resize smart -50";
               alt-shift-equal = "resize smart +50";
               alt-shift-semicolon = "mode service";
+              alt-cmd-h = "focus-monitor left";
+              alt-cmd-l = "focus-monitor right";
               # TODO: don't hardcode executable paths
               shift-cmd-t = "exec-and-forget ${lib.getExe pkgs.kitty} --single-instance -d ~";
               shift-cmd-s = "exec-and-forget open /Applications/Spotify.app";
