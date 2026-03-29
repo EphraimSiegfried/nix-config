@@ -22,6 +22,8 @@
           obsidian
           discord
           brave
+          # work related:
+          slack
         ];
 
       imports = with inputs.self.modules.homeManager; [
