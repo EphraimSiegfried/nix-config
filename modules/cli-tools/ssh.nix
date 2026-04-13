@@ -24,6 +24,11 @@
           hostname = "agra-tds.cscs.ch";
           user = "root";
         };
+        qew = {
+          host = "qew";
+          hostname = "51.154.57.9";
+          port = 1990;
+        };
         "*" = {
           setEnv = {
             "TERM" = "xterm-256color";

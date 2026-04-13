@@ -28,8 +28,10 @@
         ];
 
       imports = with inputs.self.modules.homeManager; [
-        zed
+        inputs.mac-app-util.homeManagerModules.default
+        # zed
         kitty
+        sioyek
       ];
     };
 
