@@ -24,6 +24,7 @@
           brave
           # work related:
           slack
+          zoom-us
         ];
 
       imports = with inputs.self.modules.homeManager; [
