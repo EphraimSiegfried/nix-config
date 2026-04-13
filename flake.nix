@@ -30,6 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mac-app-util.url = "github:hraban/mac-app-util";
     flake-parts.url = "github:hercules-ci/flake-parts";
     vicinae.url = "github:vicinaehq/vicinae";
     import-tree.url = "github:vic/import-tree";
