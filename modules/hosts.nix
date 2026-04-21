@@ -74,6 +74,8 @@ in
       login
 
       fonts
+
+      virtualisation
       # TODO: handle hardware configuration in a more elegant way
       {
         imports = [
