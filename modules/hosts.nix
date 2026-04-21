@@ -30,6 +30,7 @@ in
       gui_apps
       window_manager
       status_bar
+      linux-builder
     ];
   };
 
