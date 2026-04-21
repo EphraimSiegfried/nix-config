@@ -81,6 +81,9 @@
         "brave-browser"
         "firefox"
         "obsidian"
+        "element"
+        "transmission"
+        "jellyfin-media-player"
         # work related stuff
         "slack"
         "microsoft-powerpoint"
