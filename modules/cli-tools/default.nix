@@ -38,7 +38,7 @@
         tree
         lazygit
         gh
-        direnv
+        # direnv
         openconnect
       ];
       imports = with inputs.self.modules.homeManager; [
@@ -49,5 +49,12 @@
         nixvim
         zsh
       ];
+      programs.direnv = {
+        enable = true;
+        package = pkgs.direnv.overrideAttrs (old: {
+          doCheck = false;
+        });
+        nix-direnv.enable = true;
+      };
     };
 }
