@@ -38,8 +38,8 @@
             src = pkgs.fetchFromGitHub {
               owner = "EphraimSiegfried";
               repo = "sketchybar";
-              rev = "6a93f67";
-              sha256 = "sha256-zwiwIx/1DsED9/4tBxgp06B6VTEt5I63br/HUGsRUIw=";
+              rev = "48907ef21db8ad51967a7735d44ef26a1d4f1870";
+              hash = "sha256-7Yn3YV6cmnKHqXH/+/L6diHnRw0On/823w29+x/Igbs=";
             };
           };
           recursive = true;
@@ -49,7 +49,7 @@
           executable = true;
           text = # Lua
             ''
-              #!/usr/bin/bash
+              #!${pkgs.lua5_4}/bin/lua
 
               -- Add the sketchybar module to the package cpath (the module could be
               -- installed into the default search path then this would not be needed)
