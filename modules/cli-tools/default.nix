@@ -51,6 +51,7 @@
       ];
       programs.direnv = {
         enable = true;
+        silent = true;
         package = pkgs.direnv.overrideAttrs (old: {
           doCheck = false;
         });
