@@ -14,6 +14,11 @@
           hostname = "madra-dev.cscs.ch";
           user = "root";
         };
+        gitlab-tds-new = {
+          host = "gitlab-tds-new";
+          hostname = "blenio-test.cscs.ch";
+          user = "root";
+        };
         confluence-tds = {
           host = "confluence-tds";
           hostname = "ascona-tds.cscs.ch";
