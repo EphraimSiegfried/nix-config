@@ -22,6 +22,8 @@
           obsidian
           discord
           brave
+          seahorse
+          element-desktop
           # work related:
           slack
           zoom-us
