@@ -2,7 +2,7 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.secrets =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
       imports = [
         inputs.sops-nix.homeModules.sops
@@ -16,5 +16,11 @@
         age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
         defaultSopsFile = "${inputs.self}/secrets/secrets.yaml";
       };
+      dbus.packages = [ pkgs.gcr ];
+      services.gnome-keyring.enable = true;
     };
+
+  # flake.modules.nixos.secrets = {
+  #   services.gnome.gnome-keyring.enable = true;
+  # };
 }
