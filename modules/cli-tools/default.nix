@@ -40,6 +40,7 @@
         gh
         direnv
         openconnect
+        claude-code
       ];
       imports = with inputs.self.modules.homeManager; [
         ssh
