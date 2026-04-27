@@ -38,8 +38,8 @@
             src = pkgs.fetchFromGitHub {
               owner = "EphraimSiegfried";
               repo = "sketchybar";
-              rev = "48907ef21db8ad51967a7735d44ef26a1d4f1870";
-              hash = "sha256-7Yn3YV6cmnKHqXH/+/L6diHnRw0On/823w29+x/Igbs=";
+              rev = "7aa8f12aa9ebcbf5e679d17607f20b96de077f86";
+              hash = "sha256-ya9AypF5FJS0mPZUMbzbvaGbPrGpP1sKc511oSlsdsw=";
             };
           };
           recursive = true;
