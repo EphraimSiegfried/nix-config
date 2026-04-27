@@ -38,6 +38,7 @@
         tree
         lazygit
         gh
+        claude-code
         # direnv
         openconnect
       ];
