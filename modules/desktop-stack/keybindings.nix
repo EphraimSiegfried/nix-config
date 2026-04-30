@@ -39,6 +39,7 @@
           "ALT, Q, killactive"
           "ALT, W, killactive"
           "$mod, F, fullscreen"
+          "$mod, V, togglefloating"
         ]
         ++ (
           # workspaces
@@ -69,6 +70,10 @@
         ", XF86AudioNext, exec, playerctl next"
         ", XF86MonBrightnessUp, exec, brightnessctl s 10%+"
         ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ];
+      bindm = [
+        "bindm = SUPER, mouse:272, movewindow"
+        "bindm = SUPER, mouse:273, resizewindow"
       ];
     };
   };
