@@ -1,7 +1,6 @@
 { inputs, ... }:
 {
   flake.modules.nixos.hyprland = {
-    services.xserver.enable = true;
     programs.hyprland = {
       enable = true;
       withUWSM = true;
@@ -20,7 +19,6 @@
     {
 
       home.packages = with pkgs; [
-        wlogout # gui logout menu
         wl-clipboard
         grim # takes screenshots
         wf-recorder # takes screen recordings
