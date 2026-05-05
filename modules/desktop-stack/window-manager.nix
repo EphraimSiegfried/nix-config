@@ -20,14 +20,20 @@
     {
 
       home.packages = with pkgs; [
-        wlogout # gui logout menu
         wl-clipboard
         grim # takes screenshots
         wf-recorder # takes screen recordings
         slurp # can capture selected area
       ];
 
-      wayland.windowManager.hyprland.enable = true;
+      wayland.windowManager.hyprland = {
+        enable = true;
+        settings.xwayland.force_zero_scaling = true;
+      };
+
+      dconf.settings."org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
 
       home.sessionVariables = {
         MOZ_ENABLE_WAYLAND = 1;

@@ -1,8 +1,12 @@
-# Secrets are managed using sops https://github.com/Mic92/sops-nix
 { inputs, ... }:
 {
   flake.modules.homeManager.secrets =
-    { config, ... }:
+    {
+      config,
+      pkgs,
+      lib,
+      ...
+    }:
     {
       imports = [
         inputs.sops-nix.homeModules.sops
@@ -16,5 +20,15 @@
         age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
         defaultSopsFile = "${inputs.self}/secrets/secrets.yaml";
       };
+
+      # Use mkIf inside the attribute set instead of lib.optionals outside of it
+      services.gnome-keyring.enable = lib.mkIf pkgs.stdenv.isLinux true;
+
+      # For attributes that take lists, you can wrap the list or the whole attribute
+      dbus.packages = lib.mkIf pkgs.stdenv.isLinux [ pkgs.gcr ];
     };
+
+  flake.modules.nixos.secrets = {
+    services.gnome.gnome-keyring.enable = true;
+  };
 }

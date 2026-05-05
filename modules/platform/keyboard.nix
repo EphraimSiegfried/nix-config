@@ -5,6 +5,7 @@
       xkb.layout = "us";
       xkb.variant = "";
     };
+    hardware.keyboard.qmk.enable = true;
     # Remap Caps Lock to esc
     services.kanata = {
       enable = true;

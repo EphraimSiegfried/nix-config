@@ -4,6 +4,11 @@
     services.udiskie = {
       enable = true;
       notify = true;
+      settings = {
+        device_config = [
+          { device_file = "/dev/sda2"; ignore = true; }
+        ];
+      };
     };
   };
   flake.modules.nixos.hyprland = {

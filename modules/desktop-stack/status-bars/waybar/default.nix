@@ -46,7 +46,15 @@
                 "pulseaudio"
                 "bluetooth"
                 "network"
+                "hyprland/language"
               ];
+            };
+
+            "hyprland/language" = {
+              format = "{}";
+              format-en = "EN";
+              format-de = "DE";
+              on-click = "hyprctl switchxkblayout all next";
             };
 
             disk = {
