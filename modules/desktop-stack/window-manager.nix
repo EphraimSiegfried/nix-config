@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   flake.modules.nixos.hyprland = {
+    services.xserver.enable = true;
     programs.hyprland = {
       enable = true;
       withUWSM = true;
@@ -25,7 +26,14 @@
         slurp # can capture selected area
       ];
 
-      wayland.windowManager.hyprland.enable = true;
+      wayland.windowManager.hyprland = {
+        enable = true;
+        settings.xwayland.force_zero_scaling = true;
+      };
+
+      dconf.settings."org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
 
       home.sessionVariables = {
         MOZ_ENABLE_WAYLAND = 1;

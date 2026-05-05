@@ -14,6 +14,7 @@
         [
           "ALTSHIFT, T, exec, ${terminal}"
           "ALTSHIFT, B, exec, ${browser}"
+          "ALTSHIFT, F, exec, nautilus"
           "ALT, space, exec, ${menu}"
 
           "$mod, H, movefocus, l"

@@ -20,7 +20,7 @@
       services.gnome-keyring.enable = true;
     };
 
-  # flake.modules.nixos.secrets = {
-  #   services.gnome.gnome-keyring.enable = true;
-  # };
+  flake.modules.nixos.secrets = {
+    services.gnome.gnome-keyring.enable = true;
+  };
 }

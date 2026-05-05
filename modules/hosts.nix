@@ -58,6 +58,7 @@ in
       nixosDefaults
 
       nix_settings
+      nixpkgs_settings
       user
 
       kernel
@@ -71,6 +72,9 @@ in
 
       hyprland
       login
+      secrets
+      nautilus
+      steam
 
       fonts
 
@@ -118,6 +122,7 @@ in
 
       hyprland
       login
+      nautilus
 
       fonts
       # TODO: handle hardware configuration in a more elegant way
