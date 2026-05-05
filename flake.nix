@@ -30,6 +30,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sketchybar-config = {
+      url = "github:EphraimSiegfried/sketchybar";
+    };
+
     mac-app-util.url = "github:hraban/mac-app-util";
     flake-parts.url = "github:hercules-ci/flake-parts";
     vicinae.url = "github:vicinaehq/vicinae";
