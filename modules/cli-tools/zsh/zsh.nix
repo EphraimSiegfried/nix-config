@@ -23,6 +23,7 @@
             open_command = if system == "aarch64-darwin" then "open" else "xdg-open";
           in
           {
+            ls = "eza";
             uhome = "home-manager switch --flake ${flake_location}#$(whoami)@$(hostname)";
             usys = "${system_command} switch --flake ${flake_location}#$(hostname)";
             lg = "lazygit";
