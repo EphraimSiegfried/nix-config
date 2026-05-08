@@ -41,9 +41,12 @@
 
     mac-app-util.url = "github:hraban/mac-app-util";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    vicinae.url = "github:vicinaehq/vicinae";
     import-tree.url = "github:vic/import-tree";
     sops-nix.url = "github:Mic92/sops-nix";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
   };
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
