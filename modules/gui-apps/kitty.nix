@@ -5,6 +5,8 @@
     {
       home.packages = [
         pkgs.noto-fonts-color-emoji
+        pkgs.fira-code
+        pkgs.nerd-fonts.fira-code
       ];
 
       programs.kitty = {

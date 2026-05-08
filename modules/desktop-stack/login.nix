@@ -11,23 +11,6 @@
       };
     };
 
-    home-manager.sharedModules = [
-      inputs.self.modules.homeManager.wlogout
-    ];
-  };
-
-  flake.modules.homeManager.wlogout = {
-    programs.wlogout = {
-      enable = true;
-      layout = [
-        { label = "lock"; action = "loginctl lock-session"; text = "Lock"; keybind = "l"; }
-        { label = "logout"; action = "uwsm stop"; text = "Logout"; keybind = "e"; }
-        { label = "suspend"; action = "systemctl suspend"; text = "Suspend"; keybind = "u"; }
-        { label = "reboot"; action = "systemctl reboot"; text = "Reboot"; keybind = "r"; }
-        { label = "shutdown"; action = "systemctl poweroff"; text = "Shutdown"; keybind = "s"; }
-        { label = "hibernate"; action = "systemctl hibernate"; text = "Hibernate"; keybind = "h"; }
-      ];
-    };
   };
 
   flake.modules.darwin.login = {

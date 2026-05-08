@@ -9,7 +9,7 @@
         let
           terminal = "kitty";
           browser = "brave";
-          menu = "vicinae toggle";
+          menu = "noctalia-shell ipc call launcher toggle";
         in
         [
           "ALTSHIFT, T, exec, ${terminal}"

@@ -2,7 +2,7 @@
 {
   flake.modules.homeManager.hyprland = {
     imports = [
-      inputs.self.modules.homeManager.waybar
+      inputs.self.modules.homeManager.noctalia
     ];
   };
 
