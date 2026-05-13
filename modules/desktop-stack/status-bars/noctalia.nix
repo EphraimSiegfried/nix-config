@@ -1,19 +1,13 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.noctalia =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       imports = [ inputs.noctalia.homeModules.default ];
 
       wayland.windowManager.hyprland.settings = {
         exec-once = [
           "uwsm app -- noctalia-shell"
-        ];
-        layerrule = [
-          "blur, noctalia-background-.*"
-          "ignorealpha 0.5, noctalia-background-.*"
-          "blur, noctalia-bar-content-.*"
-          "ignorealpha 0.5, noctalia-bar-content-.*"
         ];
       };
 
@@ -22,71 +16,87 @@
         package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
         settings = {
+          settingsVersion = 59;
           bar = {
-            barType = "islands";
+            density = "spacious";
+            barType = "floating";
             position = "top";
             showCapsule = true;
-            backgroundOpacity = 0.8;
-            fontScale = 1.3;
+            backgroundOpacity = 0;
+            capsuleOpacity = 0.7;
+            useSeparateOpacity = true;
+            fontScale = 1;
+            widgetSpacing = 10;
+            frameThickness = 15;
             widgets = {
               left = [
-                { id = "Launcher"; }
+                {
+                  id = "SessionMenu";
+                  iconColor = "error";
+                }
                 {
                   id = "Workspace";
                   showApplications = true;
+                  colorizeIcons = true;
                 }
               ];
-              center = [ ];
+              center = [
+                {
+                  id = "MediaMini";
+                  showArtistFirst = false;
+                  showProgressRing = false;
+                  maxWidth = 400;
+                }
+              ];
               right = [
                 { id = "SystemMonitor"; }
                 { id = "KeyboardLayout"; }
                 { id = "Volume"; }
                 { id = "Bluetooth"; }
                 { id = "Network"; }
+                { id = "VPN"; }
                 { id = "Clock"; }
-                { id = "ControlCenter"; }
+                {
+                  id = "ControlCenter";
+                  useDistroLogo = true;
+                }
               ];
             };
           };
 
           general = {
+            avatarImage = "/home/siegi/nix-config/icons/magyar-nepmesek.png";
+            dimmerOpacity = 0;
             enableBlurBehind = true;
             enableShadows = true;
+            enableLockScreenMediaControls = true;
             animationSpeed = 1;
           };
 
           ui = {
-            panelBackgroundOpacity = 0.9;
+            fontDefault = "Sans Serif";
+            panelBackgroundOpacity = 50;
           };
 
           location = {
             use12hourFormat = false;
             showWeekNumberInCalendar = false;
-          };
-
-          systemMonitor = {
-            cpuWarningThreshold = 70;
-            cpuCriticalThreshold = 90;
-            tempWarningThreshold = 60;
-            tempCriticalThreshold = 90;
-            memWarningThreshold = 70;
-            memCriticalThreshold = 85;
-            diskWarningThreshold = 80;
-            diskCriticalThreshold = 90;
+            autoLocate = true;
+            name = "Basel";
           };
 
           controlCenter = {
             position = "close_to_bar_button";
             shortcuts = {
               left = [
-                { id = "Network"; }
-                { id = "Bluetooth"; }
+                { id = "NightLight"; }
+                { id = "DarkMode"; }
                 { id = "WallpaperSelector"; }
               ];
               right = [
                 { id = "Notifications"; }
-                { id = "NightLight"; }
                 { id = "KeepAwake"; }
+                { id = "AirplaneMode"; }
               ];
             };
             cards = [
@@ -101,6 +111,18 @@
               {
                 enabled = true;
                 id = "media-sysmon-card";
+              }
+              {
+                enabled = true;
+                id = "profile-card";
+              }
+              {
+                enabled = false;
+                id = "brightness-card";
+              }
+              {
+                enabled = true;
+                id = "weather-card";
               }
             ];
           };
@@ -117,16 +139,20 @@
           notifications = {
             enabled = true;
             location = "top_right";
+            density = "compact";
+            backgroundOpacity = 0.8;
           };
 
           wallpaper = {
             enabled = true;
             directory = "~/nix-config/wallpapers";
+            viewMode = "browse";
           };
 
           colorSchemes = {
             darkMode = true;
             useWallpaperColors = true;
+            generationMethod = "content";
             predefinedScheme = "Noctalia (default)";
           };
         };
