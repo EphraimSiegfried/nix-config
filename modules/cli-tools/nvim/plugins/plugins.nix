@@ -5,10 +5,6 @@
       home.packages = with pkgs; [
         ripgrep
       ];
-      programs.nixvim.colorschemes = {
-        kanagawa.enable = true;
-      };
-
       programs.nixvim.plugins = {
 
         web-devicons.enable = true;
