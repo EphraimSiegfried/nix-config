@@ -34,6 +34,7 @@
         # zed
         kitty
         sioyek
+        ghostty
       ];
     };
 
