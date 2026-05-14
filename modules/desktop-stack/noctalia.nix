@@ -1,15 +1,9 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.noctalia =
-    { pkgs, config, ... }:
+    { pkgs, ... }:
     {
       imports = [ inputs.noctalia.homeModules.default ];
-
-      wayland.windowManager.hyprland.settings = {
-        exec-once = [
-          "uwsm app -- noctalia-shell"
-        ];
-      };
 
       programs.noctalia-shell = {
         enable = true;
@@ -65,7 +59,7 @@
           };
 
           general = {
-            avatarImage = "/home/siegi/nix-config/icons/magyar-nepmesek.png";
+            avatarImage = ../../icons/magyar-nepmesek.png;
             dimmerOpacity = 0;
             enableBlurBehind = true;
             enableShadows = true;
@@ -82,7 +76,6 @@
             use12hourFormat = false;
             showWeekNumberInCalendar = false;
             autoLocate = true;
-            name = "Basel";
           };
 
           controlCenter = {
@@ -99,32 +92,6 @@
                 { id = "AirplaneMode"; }
               ];
             };
-            cards = [
-              {
-                enabled = true;
-                id = "shortcuts-card";
-              }
-              {
-                enabled = true;
-                id = "audio-card";
-              }
-              {
-                enabled = true;
-                id = "media-sysmon-card";
-              }
-              {
-                enabled = true;
-                id = "profile-card";
-              }
-              {
-                enabled = false;
-                id = "brightness-card";
-              }
-              {
-                enabled = true;
-                id = "weather-card";
-              }
-            ];
           };
 
           appLauncher = {
@@ -138,22 +105,24 @@
 
           notifications = {
             enabled = true;
-            location = "top_right";
             density = "compact";
             backgroundOpacity = 0.8;
           };
 
           wallpaper = {
             enabled = true;
-            directory = "~/nix-config/wallpapers";
-            viewMode = "browse";
+            directory = ../../wallpapers;
           };
 
           colorSchemes = {
-            darkMode = true;
             useWallpaperColors = true;
-            generationMethod = "content";
-            predefinedScheme = "Noctalia (default)";
+          };
+
+          idle = {
+            enabled = true;
+            screenOffTimeout = 300;
+            lockTimeout = 330;
+            suspendTimeout = 1800;
           };
         };
       };

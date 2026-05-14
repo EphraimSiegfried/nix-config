@@ -10,13 +10,5 @@
         siegi = ../../icons/magyar-nepmesek.png;
       };
     };
-
-  };
-
-  flake.modules.darwin.login = {
-    system.defaults.loginwindow = {
-      GuestEnabled = false;
-      SHOWFULLNAME = false;
-    };
   };
 }
