@@ -21,6 +21,7 @@
     };
     imports = [
       inputs.self.modules.nixos.desktop_services
+      inputs.self.modules.nixos.login
     ];
   };
 

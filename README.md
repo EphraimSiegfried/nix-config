@@ -1,14 +1,15 @@
 # System Configuration
 
-This repository contains my Nix configuration for a singe user. It configures
+This repository contains my Nix configuration for a single user. It configures
 things such as
 
-- [A NixOS and MacOS host (the root of the config)](./modules/hosts.nix)
+- [Hosts](./modules/hosts) (blinkybill, oz, thymian)
 - [Neovim (Nixvim)](./modules/cli-tools/nvim)
 - [Zsh](./modules/cli-tools/zsh)
-- [Hyprland](./modules/desktop-stack/window-manager.nix)
-- [Sketchybar](./modules/desktop-stack/status-bars/sketchybar.nix)
-- [Kitty](./modules/gui-apps/kitty.nix)
+- [Hyprland](./modules/desktop-stack/hyprland.nix)
+- [Noctalia Shell](./modules/desktop-stack/noctalia.nix)
+- [Ghostty](./modules/gui-apps/ghostty.nix)
+- [Firefox](./modules/gui-apps/firefox.nix)
 - [Secrets](./modules/secrets.nix)
 - And lots more ...
 
@@ -31,7 +32,7 @@ nix run github:EphraimSiegfried/nix-config#vm
 The password is `changeme` and keybindings can be activated by pressing:
 `ctrl+alt+g` (A terminal can be launched with `alt+shift+t`).
 
-## What the helly is "dendritic"?
+## What the heck is "dendritic"?
 
 Instead of thinking which hosts we want to have and configuring these (like in
 [this pattern](https://github.com/Misterio77/nix-starter-configs)), we think
@@ -39,11 +40,11 @@ about which features we want hosts to have. The features are standalone Nix
 modules which we assign to the hosts we want to have. It's kind of like
 [flipping the configuration matrix](https://not-a-number.io/2025/refactoring-my-infrastructure-as-code-configurations/#flipping-the-configuration-matrix).
 
-Here are some ressources I used while creating the configuration:
+Here are some resources I used while creating the configuration:
 
 - [Best explanation](https://github.com/Doc-Steve/dendritic-design-with-flake-parts)
   of dendritic design and has
-  [cool configuration tipps](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#design-patterns-for-dendritic-aspects)
+  [cool configuration tips](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#design-patterns-for-dendritic-aspects)
 - [Also good explanation and contains useful links](https://dendrix.oeiuwq.com/Dendritic.html)
 - [Legendary Vimjoyer video](https://www.youtube.com/watch?v=-TRbzkw6Hjs)
 - A lot of inspo came from this [repo](https://github.com/dtomvan/puntbestanden)
