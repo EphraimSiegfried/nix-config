@@ -1,13 +1,32 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.noctalia =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       imports = [ inputs.noctalia.homeModules.default ];
+
+      xdg.configFile."noctalia/plugins.json".force = true;
 
       programs.noctalia-shell = {
         enable = true;
         package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
+        plugins = {
+          sources = [
+            {
+              enabled = true;
+              name = "Noctalia Plugins";
+              url = "https://github.com/noctalia-dev/noctalia-plugins";
+            }
+          ];
+          states = {
+            network-manager-vpn = {
+              enabled = true;
+              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+            };
+          };
+          version = 2;
+        };
 
         settings = {
           settingsVersion = 59;
@@ -43,12 +62,24 @@
                 }
               ];
               right = [
-                { id = "SystemMonitor"; }
-                { id = "KeyboardLayout"; }
+                {
+                  id = "SystemMonitor";
+                  showCpuUsage = true;
+                  showMemoryUsage = true;
+                  showMemoryAsPercent = true;
+                  showDiskUsage = true;
+                  showDiskUsageAsPercent = true;
+                  showCpuTemp = false;
+                  useMonospaceFont = true;
+                }
+                {
+                  id = "KeyboardLayout";
+                  showIcon = false;
+                }
                 { id = "Volume"; }
                 { id = "Bluetooth"; }
                 { id = "Network"; }
-                { id = "VPN"; }
+                { id = "plugin:network-manager-vpn"; }
                 { id = "Clock"; }
                 {
                   id = "ControlCenter";
@@ -116,6 +147,25 @@
 
           colorSchemes = {
             useWallpaperColors = true;
+            syncGsettings = true;
+          };
+
+          templates = {
+            enableUserTheming = true;
+            activeTemplates = [
+              {
+                id = "ghostty";
+                enabled = true;
+              }
+              {
+                id = "gtk3";
+                enabled = true;
+              }
+              {
+                id = "gtk4";
+                enabled = true;
+              }
+            ];
           };
 
           idle = {
