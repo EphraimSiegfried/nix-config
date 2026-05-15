@@ -11,6 +11,9 @@
 
   flake.modules.homeManager.gui_apps =
     { pkgs, lib, ... }:
+    let
+      isLinux = pkgs.stdenv.isLinux;
+    in
     {
       home.packages =
         with pkgs;
@@ -19,7 +22,7 @@
           meld
           wireshark
         ]
-        ++ lib.optionals stdenv.isLinux [
+        ++ lib.optionals isLinux [
           qbittorrent
           vlc
           pavucontrol
@@ -81,6 +84,7 @@
         # work related stuff
         "slack"
         "microsoft-powerpoint"
+        "ghostty"
       ];
     };
   };

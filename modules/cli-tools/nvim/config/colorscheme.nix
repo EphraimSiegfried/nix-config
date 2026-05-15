@@ -57,8 +57,9 @@
       };
 
       # Template file for noctalia color generation
-      xdg.configFile."nvim/lua/noctalia-colors-template.lua" = lib.mkIf noctaliaEnabled {
-        text = templateLua;
+      xdg.configFile = lib.mkIf noctaliaEnabled {
+        "nvim/lua/noctalia-colors-template.lua".text = templateLua;
+        "noctalia/user-templates.toml".force = true;
       };
 
       # Register the template with noctalia
@@ -69,7 +70,5 @@
           post_hook = "pkill -SIGUSR1 nvim";
         };
       };
-
-      xdg.configFile."noctalia/user-templates.toml".force = lib.mkIf noctaliaEnabled true;
     };
 }

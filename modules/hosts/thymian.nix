@@ -14,7 +14,7 @@
       cli_tools
       gui_apps
       window_manager
-      status_bar
+      sketchybar
       login
       linux-builder
 

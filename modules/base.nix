@@ -15,11 +15,13 @@
 
   flake.modules.homeManager.base = {
     home.stateVersion = "23.05";
-    imports = with inputs.self.modules.homeManager; [
+    imports = [
+      inputs.noctalia.homeModules.default
+    ] ++ (with inputs.self.modules.homeManager; [
       user
       nixpkgs_settings
       fonts
       cli_tools
-    ];
+    ]);
   };
 }
