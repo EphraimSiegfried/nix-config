@@ -9,13 +9,35 @@
       inputs.self.modules.darwin.aerospace
     ];
   };
-
-  flake.modules.darwin.status_bar = {
-    system.defaults.NSGlobalDomain._HIHideMenuBar = true;
-    imports = [
-      inputs.self.modules.darwin.sketchybar
-    ];
-  };
+  flake.modules.darwin.aerospace =
+    { pkgs, ... }:
+    let
+      sketchybar = pkgs.lib.getExe pkgs.sketchybar;
+    in
+    {
+      services.aerospace = {
+        enable = true;
+        settings = {
+          exec-on-workspace-change = [
+            "/bin/bash"
+            "-c"
+            "${sketchybar} --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
+          ];
+          gaps = {
+            outer = {
+              left = 10;
+              bottom = 10;
+              top = 20;
+              right = 10;
+            };
+            inner = {
+              horizontal = 10;
+              vertical = 10;
+            };
+          };
+        };
+      };
+    };
 
   flake.modules.darwin.login = {
     system.defaults.loginwindow = {
@@ -27,6 +49,8 @@
   flake.modules.darwin.sketchybar =
     { pkgs, ... }:
     {
+
+      system.defaults.NSGlobalDomain._HIHideMenuBar = true;
       homebrew.brews = [ "ifstat" ];
       homebrew.casks = [ "sf-symbols" ];
       services.sketchybar = {

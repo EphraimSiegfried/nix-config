@@ -38,6 +38,7 @@
 
   flake.modules.darwin.user = {
     system.primaryUser = config.primaryUser.username;
+    users.users.${config.primaryUser.username}.home = "/Users/${config.primaryUser.username}";
   };
 
 }

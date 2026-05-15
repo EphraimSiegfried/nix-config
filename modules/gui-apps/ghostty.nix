@@ -1,9 +1,9 @@
 {
   flake.modules.homeManager.ghostty =
-    { config, lib, ... }:
+    { config, lib, pkgs, ... }:
     {
       programs.ghostty = {
-        enable = true;
+        enable = pkgs.stdenv.isLinux;
         settings = {
           theme = lib.mkIf config.programs.noctalia-shell.enable "noctalia";
           background-opacity = 0.8;

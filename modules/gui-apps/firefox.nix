@@ -10,7 +10,7 @@
       home.packages = lib.mkIf noctaliaEnabled [ pkgs.pywalfox-native ];
 
       programs.firefox = {
-        enable = true;
+        enable = pkgs.stdenv.isLinux;
         nativeMessagingHosts = lib.mkIf noctaliaEnabled [ pkgs.pywalfox-native ];
         profiles.default = {
           isDefault = true;
