@@ -35,6 +35,7 @@
         kitty
         sioyek
         ghostty
+        firefox
       ];
     };
 

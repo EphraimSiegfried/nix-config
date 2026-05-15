@@ -48,6 +48,14 @@
         if ok then noctalia.setup() end
       '';
 
+      programs.nixvim.opts = lib.mkIf noctaliaEnabled {
+        guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor";
+      };
+
+      programs.nixvim.highlightOverride = lib.mkIf noctaliaEnabled {
+        Cursor = { fg = "#000000"; bg = "#ffffff"; };
+      };
+
       # Template file for noctalia color generation
       xdg.configFile."nvim/lua/noctalia-colors-template.lua" = lib.mkIf noctaliaEnabled {
         text = templateLua;

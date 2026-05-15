@@ -4,8 +4,8 @@
       "$mod" = "SUPER";
       bind =
         let
-          terminal = "kitty";
-          browser = "brave";
+          terminal = "ghostty";
+          browser = "firefox";
           menu = "noctalia-shell ipc call launcher toggle";
         in
         [
@@ -115,7 +115,7 @@
               alt-shift-semicolon = "mode service";
               alt-cmd-h = "focus-monitor left";
               alt-cmd-l = "focus-monitor right";
-              shift-cmd-t = "exec-and-forget ${lib.getExe pkgs.kitty} --single-instance -d ~";
+              shift-cmd-t = "exec-and-forget ${lib.getExe pkgs.ghostty}";
               shift-cmd-s = "exec-and-forget open /Applications/Spotify.app";
               shift-cmd-b = "exec-and-forget open -n '/Applications/Brave Browser.app'";
             };

@@ -1,6 +1,8 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.hyprland = {
+  flake.modules.nixos.hyprland =
+    { pkgs, ... }:
+    {
     services.xserver.enable = true;
     programs.hyprland = {
       enable = true;
@@ -12,6 +14,10 @@
     ];
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
+    };
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
     imports = [
       inputs.self.modules.nixos.desktop_services
@@ -88,9 +94,6 @@
         };
       };
 
-      dconf.settings."org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
 
       home.sessionVariables = {
         MOZ_ENABLE_WAYLAND = 1;
@@ -100,6 +103,7 @@
         XDG_CURRENT_DESKTOP = "Hyprland";
         XDG_SESSION_DESKTOP = "Hyprland";
         XCURSOR_SIZE = 128;
+        ADW_DISABLE_PORTAL = 1;
       };
     };
 }
