@@ -21,10 +21,8 @@
         defaultSopsFile = "${inputs.self}/secrets/secrets.yaml";
       };
 
-      # Use mkIf inside the attribute set instead of lib.optionals outside of it
       services.gnome-keyring.enable = lib.mkIf pkgs.stdenv.isLinux true;
 
-      # For attributes that take lists, you can wrap the list or the whole attribute
       dbus.packages = lib.mkIf pkgs.stdenv.isLinux [ pkgs.gcr ];
     };
 

@@ -2,6 +2,13 @@
 # and imports modules with apps which have configuation
 { inputs, ... }:
 {
+  flake.modules.nixos.gui_apps = {
+    imports = with inputs.self.modules.nixos; [
+      nautilus
+      steam
+    ];
+  };
+
   flake.modules.homeManager.gui_apps =
     { pkgs, lib, ... }:
     {
