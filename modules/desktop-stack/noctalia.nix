@@ -64,6 +64,7 @@
               right = [
                 {
                   id = "SystemMonitor";
+                  compactMode = false;
                   showCpuUsage = true;
                   showMemoryUsage = true;
                   showMemoryAsPercent = true;
