@@ -25,6 +25,7 @@
           imports = with inputs.self.modules.homeManager; [
             base
             gui_apps
+            noctalia_laptop
           ];
         };
       }
