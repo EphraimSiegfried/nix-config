@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 {
   flake.modules.homeManager.noctalia =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       imports = [ inputs.noctalia.homeModules.default ];
 
@@ -90,7 +90,7 @@
           };
 
           general = {
-            avatarImage = ../../icons/magyar-nepmesek.png;
+            avatarImage = "${self}/icons/magyar-nepmesek.png";
             dimmerOpacity = 0;
             enableBlurBehind = true;
             enableShadows = true;
@@ -142,7 +142,7 @@
 
           wallpaper = {
             enabled = true;
-            directory = ../../wallpapers;
+            directory = "${self}/wallpapers";
           };
 
           colorSchemes = {
