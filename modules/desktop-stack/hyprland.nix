@@ -29,7 +29,6 @@
     { pkgs, ... }:
     {
       imports = [
-        inputs.self.modules.homeManager.noctalia
         inputs.self.modules.homeManager.hyprland_keybindings
         inputs.self.modules.homeManager.desktop_services
       ];
