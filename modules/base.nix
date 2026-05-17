@@ -6,7 +6,6 @@
       nix_settings
       nixpkgs_settings
       user
-      kernel
       systemd_boot
       fonts
       network
@@ -17,7 +16,8 @@
     home.stateVersion = "23.05";
     imports = [
       inputs.noctalia.homeModules.default
-    ] ++ (with inputs.self.modules.homeManager; [
+    ]
+    ++ (with inputs.self.modules.homeManager; [
       user
       nixpkgs_settings
       fonts
