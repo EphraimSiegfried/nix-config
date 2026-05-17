@@ -11,6 +11,7 @@
       audio
       keyboard
       amdgpu
+      kernel
 
       hyprland
       secrets
