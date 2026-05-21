@@ -29,6 +29,8 @@
 
         indent-blankline.enable = true;
 
+        diffview.enable = true;
+
         inc-rename = {
           enable = true;
         };
