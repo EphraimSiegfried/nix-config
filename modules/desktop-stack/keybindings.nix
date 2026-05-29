@@ -115,7 +115,7 @@
               alt-shift-semicolon = "mode service";
               alt-cmd-h = "focus-monitor left";
               alt-cmd-l = "focus-monitor right";
-              shift-cmd-t = "exec-and-forget /Applications/Ghostty.app";
+              shift-cmd-t = "exec-and-forget ${lib.getExe pkgs.kitty} --single-instance -d ~";
               shift-cmd-s = "exec-and-forget open /Applications/Spotify.app";
               shift-cmd-b = "exec-and-forget open -n '/Applications/Brave Browser.app'";
             };
