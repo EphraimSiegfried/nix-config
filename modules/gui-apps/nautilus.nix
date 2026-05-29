@@ -10,7 +10,11 @@
         gnome-font-viewer
         webp-pixbuf-loader
         librsvg
+        file-roller
+        nautilus-open-any-terminal
+        papirus-icon-theme
       ];
+      services.tumbler.enable = true;
       services.gvfs.enable = true;
       services.gnome.sushi.enable = true;
       environment.pathsToLink = [ "/share/thumbnailers" ];
