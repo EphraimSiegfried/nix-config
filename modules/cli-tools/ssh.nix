@@ -34,6 +34,12 @@
           hostname = "51.154.57.9";
           port = 1990;
         };
+        o11y = {
+          host = "o11y";
+          hostname = "siegi.internet-box.ch";
+          port = 2001;
+        };
+
         "*" = {
           setEnv = {
             "TERM" = "xterm-256color";
