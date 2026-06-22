@@ -37,6 +37,7 @@
           # work related:
           slack
           zoom-us
+          bruno
         ];
 
       imports = with inputs.self.modules.homeManager; [

@@ -23,8 +23,6 @@
 
         gitsigns.enable = true;
 
-        transparent.enable = true;
-
         markdown-preview.enable = true;
 
         indent-blankline.enable = true;

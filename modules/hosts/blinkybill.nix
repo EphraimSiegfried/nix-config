@@ -24,6 +24,7 @@
           inputs.home-manager.nixosModules.default
         ];
         networking.hostName = "blinkybill";
+        home-manager.backupFileExtension = "hm-backup";
         home-manager.users.${config.primaryUser.username} = {
           imports = with inputs.self.modules.homeManager; [
             base

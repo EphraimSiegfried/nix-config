@@ -4,13 +4,14 @@
     { pkgs, config, lib, ... }:
     let
       nurAddons = inputs.nur.legacyPackages.${pkgs.stdenv.hostPlatform.system}.repos.rycee.firefox-addons;
-      noctaliaEnabled = config.programs.noctalia-shell.enable;
+      noctaliaEnabled = config.programs.noctalia.enable;
     in
     {
       home.packages = lib.mkIf noctaliaEnabled [ pkgs.pywalfox-native ];
 
       programs.firefox = {
         enable = pkgs.stdenv.isLinux;
+        configPath = "${config.xdg.configHome}/mozilla/firefox";
         nativeMessagingHosts = lib.mkIf noctaliaEnabled [ pkgs.pywalfox-native ];
         profiles.default = {
           isDefault = true;
@@ -30,13 +31,5 @@
         (lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           $DRY_RUN_CMD ${pkgs.pywalfox-native}/bin/pywalfox install
         '');
-
-      programs.noctalia-shell.settings.templates.activeTemplates =
-        lib.mkIf noctaliaEnabled [
-          {
-            id = "pywalfox";
-            enabled = true;
-          }
-        ];
     };
 }
