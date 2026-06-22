@@ -5,140 +5,113 @@
     {
       imports = [ inputs.noctalia.homeModules.default ];
 
-      xdg.configFile."noctalia/plugins.json".force = true;
-
-      programs.noctalia-shell = {
+      programs.noctalia = {
         enable = true;
         package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-        plugins = {
-          sources = [
-            {
-              enabled = true;
-              name = "Noctalia Plugins";
-              url = "https://github.com/noctalia-dev/noctalia-plugins";
-            }
-          ];
-          states = {
-            network-manager-vpn = {
-              enabled = true;
-              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-            };
-          };
-          version = 2;
-        };
-
         settings = {
-          settingsVersion = 59;
-          bar = {
-            density = "spacious";
-            barType = "floating";
+          bar.default = {
             position = "top";
-            showCapsule = true;
-            backgroundOpacity = 0;
-            capsuleOpacity = 0.7;
-            useSeparateOpacity = true;
-            fontScale = 1;
-            widgetSpacing = 10;
-            frameThickness = 15;
-            widgets = {
-              left = [
-                {
-                  id = "SessionMenu";
-                  iconColor = "error";
-                }
-                {
-                  id = "Workspace";
-                  showApplications = true;
-                  colorizeIcons = true;
-                }
-              ];
-              center = [
-                {
-                  id = "MediaMini";
-                  showArtistFirst = false;
-                  showProgressRing = false;
-                  maxWidth = 400;
-                }
-              ];
-              right = [
-                {
-                  id = "SystemMonitor";
-                  compactMode = false;
-                  showCpuUsage = true;
-                  showMemoryUsage = true;
-                  showMemoryAsPercent = true;
-                  showDiskUsage = true;
-                  showDiskUsageAsPercent = true;
-                  showCpuTemp = false;
-                  useMonospaceFont = true;
-                }
-                {
-                  id = "KeyboardLayout";
-                  showIcon = false;
-                }
-                { id = "Volume"; }
-                { id = "Bluetooth"; }
-                { id = "Network"; }
-                { id = "plugin:network-manager-vpn"; }
-                { id = "Clock"; }
-                {
-                  id = "ControlCenter";
-                  useDistroLogo = true;
-                }
-              ];
+            capsule = true;
+            background_opacity = 0;
+            capsule_opacity = 0.7;
+            scale = 1.1;
+            widget_spacing = 10;
+            margin_edge = 10;
+            margin_ends = 20;
+            thickness = 35;
+
+            start = [
+              "session"
+              "taskbar"
+            ];
+            center = [
+              "media"
+            ];
+            end = [
+              "clipboard"
+              "group:g1"
+              "volume"
+              "keyboard_layout"
+              "bluetooth"
+              "network"
+              "group:g2"
+            ];
+
+            capsule_group = [
+              {
+                id = "g1";
+                members = [ "ram" "cpu" ];
+                fill = "surface_variant";
+                opacity = 0.7;
+                padding = 10.0;
+              }
+              {
+                id = "g2";
+                members = [ "clock" "control-center" ];
+                fill = "surface_variant";
+                opacity = 0.7;
+                padding = 6.0;
+              }
+            ];
+          };
+
+          widget.keyboard_layout = {
+            type = "keyboard_layout";
+            hide_when_single_layout = true;
+          };
+
+          widget.cpu = {
+            type = "sysmon";
+            stat = "cpu_usage";
+          };
+
+          widget.ram = {
+            type = "sysmon";
+            stat = "ram_used";
+          };
+
+          widget.taskbar = {
+            group_by_workspace = true;
+            group_single_icon_per_app = true;
+          };
+
+          widget.control-center = {
+            glyph = "snowflake";
+          };
+
+          shell = {
+            avatar_path = "${self}/icons/magyar-nepmesek.png";
+            font_family = "Sans Serif";
+            settings_show_advanced = true;
+
+            animation.speed = 1.0;
+
+            panel = {
+              shadow = true;
+              launcher_sort_by_usage = true;
+              control_center_placement = "attached";
+              open_near_click_control_center = true;
             };
           };
 
-          general = {
-            avatarImage = "${self}/icons/magyar-nepmesek.png";
-            dimmerOpacity = 0;
-            enableBlurBehind = true;
-            enableShadows = true;
-            enableLockScreenMediaControls = true;
-            animationSpeed = 1;
-          };
+          osd.position = "top_right";
 
-          ui = {
-            fontDefault = "Sans Serif";
-            panelBackgroundOpacity = 50;
-          };
+          location.auto_locate = true;
 
-          location = {
-            use12hourFormat = false;
-            showWeekNumberInCalendar = false;
-            autoLocate = true;
-          };
+          control_center.shortcuts = [
+            { type = "nightlight"; }
+            { type = "notification"; }
+            { type = "caffeine"; }
+          ];
 
-          controlCenter = {
-            position = "close_to_bar_button";
-            shortcuts = {
-              left = [
-                { id = "NightLight"; }
-                { id = "DarkMode"; }
-                { id = "WallpaperSelector"; }
-              ];
-              right = [
-                { id = "Notifications"; }
-                { id = "KeepAwake"; }
-                { id = "AirplaneMode"; }
-              ];
-            };
-          };
+          lockscreen.tint_intensity = 0.1;
 
-          appLauncher = {
-            terminalCommand = "kitty -e";
-            sortByMostUsed = true;
-          };
+          dock.enabled = false;
 
-          dock = {
-            enabled = false;
-          };
-
-          notifications = {
-            enabled = true;
-            density = "compact";
-            backgroundOpacity = 0.8;
+          notification = {
+            enable_daemon = true;
+            background_opacity = 0.8;
           };
 
           wallpaper = {
@@ -146,34 +119,52 @@
             directory = "${self}/wallpapers";
           };
 
-          colorSchemes = {
-            useWallpaperColors = true;
-            syncGsettings = true;
-          };
+          theme = {
+            source = "wallpaper";
+            mode = "dark";
 
-          templates = {
-            enableUserTheming = true;
-            activeTemplates = [
-              {
-                id = "ghostty";
-                enabled = true;
-              }
-              {
-                id = "gtk3";
-                enabled = true;
-              }
-              {
-                id = "gtk4";
-                enabled = true;
-              }
-            ];
+            templates = {
+              enable_builtin_templates = true;
+              enable_community_templates = true;
+              builtin_ids = [
+                "ghostty"
+                "gtk3"
+                "gtk4"
+              ];
+              community_ids = [
+                "pywalfox"
+              ];
+            };
           };
 
           idle = {
-            enabled = true;
-            screenOffTimeout = 300;
-            lockTimeout = 330;
-            suspendTimeout = 1800;
+            behavior = {
+              lock = {
+                enabled = true;
+                timeout = 330;
+              };
+              screen-off = {
+                enabled = true;
+                timeout = 300;
+              };
+              lock-and-suspend = {
+                enabled = true;
+                timeout = 1800;
+              };
+            };
+          };
+
+          plugins = {
+            enabled = [];
+            source = [
+              {
+                name = "official";
+                kind = "git";
+                enabled = true;
+                auto_update = false;
+                location = "https://github.com/noctalia-dev/official-plugins";
+              }
+            ];
           };
         };
       };

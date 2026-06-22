@@ -6,7 +6,7 @@
         let
           terminal = "ghostty";
           browser = "firefox";
-          menu = "noctalia-shell ipc call launcher toggle";
+          menu = "noctalia msg panel-toggle launcher";
         in
         [
           "ALTSHIFT, T, exec, ${terminal}"
@@ -29,8 +29,8 @@
           "$mod SHIFT, K, swapwindow, u"
           "$mod SHIFT, J, swapwindow, d"
 
-          "$mod, S, exec, grim - | wl-copy"
-          "$mod SHIFT, S, exec, grim -g \"$(slurp)\" | wl-copy"
+          "$mod, S, exec, noctalia msg screenshot-fullscreen"
+          "$mod SHIFT, S, exec, noctalia msg screenshot-region"
 
           "$mod, TAB, focuscurrentorlast"
 

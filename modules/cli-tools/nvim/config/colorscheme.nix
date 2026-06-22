@@ -3,7 +3,7 @@
   flake.modules.homeManager.nixvim =
     { config, lib, ... }:
     let
-      noctaliaEnabled = config.programs.noctalia-shell.enable;
+      noctaliaEnabled = config.programs.noctalia.enable;
       templateLua = ''
         local M = {}
         function M.setup()
@@ -59,16 +59,13 @@
       # Template file for noctalia color generation
       xdg.configFile = lib.mkIf noctaliaEnabled {
         "nvim/lua/noctalia-colors-template.lua".text = templateLua;
-        "noctalia/user-templates.toml".force = true;
       };
 
       # Register the template with noctalia
-      programs.noctalia-shell.user-templates = lib.mkIf noctaliaEnabled {
-        templates.nvim-base16 = {
-          input_path = "~/.config/nvim/lua/noctalia-colors-template.lua";
-          output_path = "~/.config/nvim/lua/noctalia-colors.lua";
-          post_hook = "pkill -SIGUSR1 nvim";
-        };
+      programs.noctalia.settings.theme.templates.user.nvim-base16 = lib.mkIf noctaliaEnabled {
+        input_path = "~/.config/nvim/lua/noctalia-colors-template.lua";
+        output_path = "~/.config/nvim/lua/noctalia-colors.lua";
+        post_hook = "pkill -SIGUSR1 nvim";
       };
     };
 }

@@ -3,46 +3,38 @@
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = {
-        gitlab-tds = {
-          host = "gitlab-tds";
-          hostname = "madra-test.cscs.ch";
-          user = "root";
+      settings = {
+        "Host gitlab-tds" = {
+          Hostname = "madra-test.cscs.ch";
+          User = "root";
         };
-        gitlab-dev = {
-          host = "gitlab-dev";
-          hostname = "madra-dev.cscs.ch";
-          user = "root";
+        "Host gitlab-dev" = {
+          Hostname = "madra-dev.cscs.ch";
+          User = "root";
         };
-        gitlab-tds-new = {
-          host = "gitlab-tds-new";
-          hostname = "blenio-test.cscs.ch";
-          user = "root";
+        "Host gitlab-tds-new" = {
+          Hostname = "blenio-test.cscs.ch";
+          User = "root";
         };
-        confluence-tds = {
-          host = "confluence-tds";
-          hostname = "ascona-tds.cscs.ch";
-          user = "root";
+        "Host confluence-tds" = {
+          Hostname = "ascona-tds.cscs.ch";
+          User = "root";
         };
-        jira-tds = {
-          host = "jira-tds";
-          hostname = "agra-tds.cscs.ch";
-          user = "root";
+        "Host jira-tds" = {
+          Hostname = "agra-tds.cscs.ch";
+          User = "root";
         };
-        qew = {
-          host = "qew";
-          hostname = "51.154.57.9";
-          port = 1990;
+        "Host qew" = {
+          Hostname = "51.154.57.9";
+          Port = 1990;
         };
-        o11y = {
-          host = "o11y";
-          hostname = "siegi.internet-box.ch";
-          port = 2001;
+        "Host o11y" = {
+          Hostname = "siegi.internet-box.ch";
+          Port = 2001;
         };
-
-        "*" = {
-          setEnv = {
-            "TERM" = "xterm-256color";
+        "Host *" = {
+          SetEnv = {
+            TERM = "xterm-256color";
           };
         };
       };

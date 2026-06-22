@@ -42,11 +42,12 @@
 
       wayland.windowManager.hyprland = {
         enable = true;
+        configType = "hyprlang";
         settings = {
           xwayland.force_zero_scaling = true;
 
           exec-once = [
-            "uwsm app -- noctalia-shell"
+            "uwsm app -- noctalia"
           ];
 
           general = {
@@ -86,10 +87,10 @@
           ];
 
           layerrule = [
-            "blur, noctalia-background-.*"
-            "ignorealpha 0.5, noctalia-background-.*"
-            "blur, noctalia-bar-content-.*"
-            "ignorealpha 0.5, noctalia-bar-content-.*"
+            "blur true, match:namespace noctalia-wallpaper"
+            "ignore_alpha 0.5, match:namespace noctalia-wallpaper"
+            "blur true, match:namespace noctalia-bar-default"
+            "ignore_alpha 0.5, match:namespace noctalia-bar-default"
           ];
         };
       };
