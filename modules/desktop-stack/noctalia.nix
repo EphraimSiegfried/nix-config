@@ -139,17 +139,21 @@
 
           idle = {
             behavior = {
-              lock = {
-                enabled = true;
-                timeout = 330;
-              };
               screen-off = {
                 enabled = true;
                 timeout = 300;
+                command = "noctalia:dpms-off";
+                resume_command = "noctalia:dpms-on";
+              };
+              lock = {
+                enabled = true;
+                timeout = 330;
+                command = "noctalia:session lock";
               };
               lock-and-suspend = {
                 enabled = true;
                 timeout = 1800;
+                command = "noctalia:session lock-and-suspend";
               };
             };
           };
