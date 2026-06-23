@@ -2,6 +2,7 @@
 {
   flake.modules.nixos.base = {
     system.stateVersion = "25.11";
+    programs.nix-ld.enable = true;
     imports = with inputs.self.modules.nixos; [
       nix_settings
       nixpkgs_settings
