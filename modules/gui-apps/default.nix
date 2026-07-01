@@ -55,7 +55,6 @@
     homebrew = {
       enable = true;
       onActivation = {
-        cleanup = "zap";
         autoUpdate = false;
       };
       casks = [
@@ -83,6 +82,7 @@
         "element"
         "transmission"
         "jellyfin-media-player"
+        "drawio"
         # work related stuff
         "slack"
         "microsoft-powerpoint"
