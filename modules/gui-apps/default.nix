@@ -34,6 +34,7 @@
           brave
           seahorse
           element-desktop
+          drawio
           # work related:
           slack
           zoom-us
