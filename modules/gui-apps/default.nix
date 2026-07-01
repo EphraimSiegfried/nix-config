@@ -18,11 +18,11 @@
       home.packages =
         with pkgs;
         [
-          zathura
           meld
           wireshark
         ]
         ++ lib.optionals isLinux [
+          zathura
           qbittorrent
           vlc
           pavucontrol
