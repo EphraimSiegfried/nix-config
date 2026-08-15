@@ -197,7 +197,7 @@
                 command = lib.getExe pkgs.jq;
               };
               nixfmt = {
-                command = lib.getExe pkgs.nixfmt-rfc-style;
+                command = lib.getExe pkgs.nixfmt;
               };
               prettierd = {
                 command = lib.getExe pkgs.prettierd;
