@@ -41,14 +41,20 @@
             capsule_group = [
               {
                 id = "g1";
-                members = [ "ram" "cpu" ];
+                members = [
+                  "ram"
+                  "cpu"
+                ];
                 fill = "surface_variant";
                 opacity = 0.7;
                 padding = 10.0;
               }
               {
                 id = "g2";
-                members = [ "clock" "control-center" ];
+                members = [
+                  "clock"
+                  "control-center"
+                ];
                 fill = "surface_variant";
                 opacity = 0.7;
                 padding = 6.0;
@@ -142,24 +148,24 @@
               screen-off = {
                 enabled = true;
                 timeout = 300;
-                command = "noctalia:dpms-off";
-                resume_command = "noctalia:dpms-on";
+                command = "noctalia msg dpms-off";
+                resume_command = "noctalia msg dpms-on";
               };
               lock = {
                 enabled = true;
-                timeout = 330;
-                command = "noctalia:session lock";
+                timeout = 350;
+                command = "noctalia msg session lock";
               };
               lock-and-suspend = {
                 enabled = true;
                 timeout = 1800;
-                command = "noctalia:session lock-and-suspend";
+                command = "noctalia msg session lock-and-suspend";
               };
             };
           };
 
           plugins = {
-            enabled = [];
+            enabled = [ ];
             source = [
               {
                 name = "official";
