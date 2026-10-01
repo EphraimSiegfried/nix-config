@@ -49,6 +49,7 @@
         git
         nixvim
         zsh
+        taskwarrior
       ];
       programs.direnv = {
         enable = true;
