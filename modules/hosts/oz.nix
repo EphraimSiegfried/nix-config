@@ -11,6 +11,7 @@
       audio
       keyboard-macbook
       graphics
+      battery-macbook
 
       hyprland
       gui_apps

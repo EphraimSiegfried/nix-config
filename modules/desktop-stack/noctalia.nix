@@ -77,6 +77,7 @@
                   id = "KeyboardLayout";
                   showIcon = false;
                 }
+                { id = "Battery"; }
                 { id = "Volume"; }
                 { id = "Bluetooth"; }
                 { id = "Network"; }

@@ -3,27 +3,27 @@
   flake.modules.nixos.hyprland =
     { pkgs, ... }:
     {
-    services.xserver.enable = true;
-    programs.hyprland = {
-      enable = true;
-      withUWSM = true;
-      xwayland.enable = true;
+      services.xserver.enable = true;
+      programs.hyprland = {
+        enable = true;
+        withUWSM = true;
+        xwayland.enable = true;
+      };
+      home-manager.sharedModules = [
+        inputs.self.modules.homeManager.hyprland
+      ];
+      environment.sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+      };
+      xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
+      imports = [
+        inputs.self.modules.nixos.desktop_services
+        inputs.self.modules.nixos.login
+      ];
     };
-    home-manager.sharedModules = [
-      inputs.self.modules.homeManager.hyprland
-    ];
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    };
-    imports = [
-      inputs.self.modules.nixos.desktop_services
-      inputs.self.modules.nixos.login
-    ];
-  };
 
   flake.modules.homeManager.hyprland =
     { pkgs, ... }:
@@ -94,10 +94,10 @@
         };
       };
 
-
       home.sessionVariables = {
         MOZ_ENABLE_WAYLAND = 1;
         NIXOS_OZONE_WL = 1;
+        ELECTRON_OZONE_PLATFORM_HINT = "auto";
         QT_QPA_PLATFORM = "wayland";
         XDG_SESSION_TYPE = "wayland";
         XDG_CURRENT_DESKTOP = "Hyprland";

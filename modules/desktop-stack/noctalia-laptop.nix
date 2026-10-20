@@ -6,7 +6,7 @@
       imports = [ inputs.self.modules.homeManager.noctalia ];
 
       programs.noctalia-shell.settings.bar = {
-        barType = lib.mkForce "standard";
+        barType = lib.mkForce "default";
         widgets.right = lib.mkForce [
           {
             id = "SystemMonitor";
