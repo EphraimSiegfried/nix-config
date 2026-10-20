@@ -21,6 +21,8 @@
           inputs.home-manager.nixosModules.default
         ];
         networking.hostName = "oz";
+        home-manager.backupFileExtension = "bak";
+        services.upower.enable = true;
         home-manager.users.${config.primaryUser.username} = {
           imports = with inputs.self.modules.homeManager; [
             base

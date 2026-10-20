@@ -87,10 +87,10 @@
           ];
 
           layerrule = [
-            "blur true, match:namespace noctalia-wallpaper"
-            "ignore_alpha 0.5, match:namespace noctalia-wallpaper"
-            "blur true, match:namespace noctalia-bar-default"
-            "ignore_alpha 0.5, match:namespace noctalia-bar-default"
+            "match:namespace = noctalia-background-.*, blur 1"
+            "match:namespace = noctalia-background-.*, ignore_alpha 0.5"
+            "match:namespace = noctalia-bar-content-.*, blur 1"
+            "match:namespace = noctalia-bar-content-.*, ignore_alpha 0.5"
           ];
         };
       };
